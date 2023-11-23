@@ -35,6 +35,7 @@ Though individual agents show only slight preference for being surrounded by sim
 
 
 import sys
+from typing import List
 sys.path.append('..')
 sys.path.append('../../..')
 
@@ -110,11 +111,39 @@ class Individual(EI.Individual):
 		Different = sum([Statistics[C] for C in self.Scenario.Colours if C != self.Colour])	
 		if (Same + Different) == 0:
 			return self.satisfied
-		
-		if (Different / (Same + Different)) > self.Scenario.Parameter('Tolerance')/100:
+		if (Different / (Same + Different)) > self.Scenario.Parameter('Tolerance') / 100:
 			self.satisfied = False
-
 		return self.satisfied
+	
+	def measureNeighborhoodDiversity(self, point):
+		Statistics = Land.InspectNeighbourhood(point, self.Scenario.Parameter('NeighbourhoodRadius'))
+		Same = Statistics[self.Colour]
+		Different = sum([Statistics[C] for C in self.Scenario.Colours if C != self.Colour])
+		if (Same + Different) == 0:
+			return 0
+		return (Different / (Same + Different))
+	
+	def getBestPoint(self, potentialPointDiversityList):
+		satisfiedPoints = [x for x in potentialPointDiversityList if x[1] <= self.Scenario.Parameter('Tolerance') / 100]
+		if len(satisfiedPoints) == 0:
+			# return min(potentialPointDiversityList, key=lambda x: x[1])[0]
+			return random.choice(potentialPointDiversityList)[0]
+		return random.choice(satisfiedPoints)[0]
+	
+	def decideWhereToMove(self):
+		numEmptyPoints = self.Scenario.Parameter('LandSize')**2 - self.Scenario.Parameter('PopulationSize')
+		SearchProportion = self.Scenario.Parameter('SearchProportion') / 100
+		numOptions = max(int(SearchProportion * numEmptyPoints), 1)
+		potentialPointDiversityList = []
+		for i in range(numOptions):
+			for ii in range(10): # should work at first attempt most of the time
+				point = Land.randomPosition(Content=None, check=True)
+				if point is None and ii == 0: 
+					Land.statistics()
+				if point is not None:
+					potentialPointDiversityList.append((point, self.measureNeighborhoodDiversity(point)))
+					break
+		return self.getBestPoint(potentialPointDiversityList)
 
 	def moves(self, Position=None):
 		# print 'moving', self
@@ -124,7 +153,8 @@ class Individual(EI.Individual):
 		else:
 			# pick a random location and go there (TO BE MODIFIED)
 			for ii in range(10): # should work at first attempt most of the time
-				Landing = Land.randomPosition(Content=None, check=True)	# selects an empty cell
+				# Landing = Land.randomPosition(Content=None, check=True)	# selects an empty cell
+				Landing = self.decideWhereToMove()
 				if Landing and self.locate(Landing):
 					return True
 				elif ii == 0:	Land.statistics()   # need to update list of available positions

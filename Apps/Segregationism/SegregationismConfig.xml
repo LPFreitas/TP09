@@ -21,7 +21,7 @@
 		<Parameter Scenario="Segregationism Convention">
 			<Name>NbColours</Name>
 			<Description><info><![CDATA[Number of different agent types (colours)]]></info></Description>
-			<Value>3</Value>
+			<Value>2</Value>
 		</Parameter>
 		<Parameter>
 			<Name>NeighbourhoodRadius</Name>
@@ -46,7 +46,12 @@
 		<Parameter Scenario="Segregationism Convention">
 			<Name>Tolerance</Name>
 			<Description><info><![CDATA[Percentage of individuals that are different (= different / (same + different)) above which one decides to move.]]></info></Description>
-			<Value>40</Value>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="Segregationism Convention">
+			<Name>SearchProportion</Name>
+			<Description><info><![CDATA[Proportion (in %) of empty places a unsatisfied individual will consider when moving. If it equals zero, the individual chooses a random place in the land.]]></info></Description>
+			<Value>0</Value>
 		</Parameter>
 	</Parameter>
 	<Parameter>
