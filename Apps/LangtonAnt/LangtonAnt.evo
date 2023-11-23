@@ -1,0 +1,12 @@
+ApplicationDir	.
+DisplayPeriod	5
+Icon	icon.png
+Noise	0
+Rule	RL
+RunConfigFile	_Params.evo
+ScenarioFileName	LangtonAnt.evo
+ScenarioName	LangtonAnt
+Size	256
+Target	LangtonAnt.py
+TimeLimit	256
+Title	Evolife_Langton_Ant

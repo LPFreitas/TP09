@@ -1,0 +1,35 @@
+<!DOCTYPE html><HTML><HEAD><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><TITLE>JL Dessalles - Evolife</TITLE>
+<link rel="stylesheet" type="text/css" href="Evolife.css" /></HEAD><BODY BGCOLOR="#FFEEAA"><div><P></P>
+<HR WIDTH="100%" ALIGN="LEFT"><P></P><span style="font-size:144%"><p style="text-align:center"><span style="font-family:Comic Sans MS;"><a href="http://evolife.dessalles.fr">Evolife</a></span></p></span>
+<p style="text-align:center"><a href="http://www.dessalles.fr">Jean-Louis Dessalles</a></p>
+<HR WIDTH="100%" ALIGN="LEFT">
+<IMG style=";float: right; padding-left: 15px;" SRC="Images/Courbes.jpg" alt="Courbes.jpg" />
+<ol  ><li><a href="Description.html">Overall description</a></li>
+<li><a href="Execution.html">How to execute Evolife</a> (+ download)</li>
+<li><a href="Sources.html">Evolife source files</a></li>
+<li><a href="Classes">Evolife classes and functions</a></li>
+<li><a href="Working.html">How Evolife works</a></li>
+<li><a href="Create_Scenario.html">Create your own Evolife scenario</a></li>
+<li><a href="Components.html">Use Evolife&rsquo;s components separately (graphics, ecology, genetic algorithm)</a></li></ol><P></P>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:120%">&#x21aa;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Classes">Program documentation</a></span>
+<br/>
+<HR WIDTH="100%" ALIGN="LEFT">
+<br/>
+ 
+<div id="H1"><h2>4. <span style="font-family:Comic Sans MS;">Evolife</span> Classes</h2></div>
+In the figure below, solid lines represent inheritance links. Dotted lines indicate that a class is used in another. The schema reveals the organization of <span style="font-family:Comic Sans MS;">Evolife</span> in well-separated modules.<P></P><IMG style="width:45%;float: left; padding-right: 15px;" SRC="Images/Evolife_Ecology.svg" alt="Evolife_Ecology.svg" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<IMG style="width:29%;float: left; padding-right: 15px;" SRC="Images/Evolife_Observer.svg" alt="Evolife_Observer.svg" /><P></P>&nbsp;&nbsp;&nbsp;&nbsp;
+<IMG style="width:20%;" SRC="Images/Evolife_Scenario.svg" alt="Evolife_Scenario.svg" /><P></P>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+The first module is centred on <span class="xjlcode">EvolifeIndividual</span>. An Individual inherits its genes from <span class="xjlcode">Genome</span>. Note that genes (defined in <span class="xjlcode">Genome</span>) are logical segments located on the DNA. Therefore <span class="xjlcode">Genome</span> inherits from DNA. Individuals have also a phenotype, defined in <span class="xjlcode">Phenome</span>. An individual remembers its social links, which are stored in <span class="xjlcode">Alliances</span>. <span class="xjlcode">EvolifeIndividuals</span> gather in groups (class <span class="xjlcode">EvolifeGroup</span>), in which they interact and reproduce. Individuals may move from group to group. <span class="xjlcode">EvolifePopulation</span> defines a set of groups.<P></P><span class="xjlcode">Storage</span>, <span class="xjlcode">Base_Examiner</span>, <span class="xjlcode">Examiner</span> and <span class="xjlcode">Meta_Examiner</span> are used to store numbers (simulation results) and perform statistics.  <span class="xjlcode">Evolife_Observer</span> is aware of the kind of data that are processed (genomes, scores, ...).<P></P>Any particular scenario should inherit from <span class="xjlcode">Default_Scenario</span> (as indicated for <span class="xjlcode">Void_Scenario</span> in the figure). Besides particular functions defined in the scenario, <span class="xjlcode">Default_Scenario</span> provides access to simulation parameters (through inheritance from <span class="xjlcode">Parameters</span>) and to the logical definition of genes on the DNA string (through inheritance from <span class="xjlcode">Genetic_Map</span>).<P></P>The following figure describes the organization of the graphic modules.
+<br/>
+ 
+<p style="text-align:center"><IMG style="width:50%;" SRC="Images/Evolife_Graphics.svg" alt="Evolife_Graphics.svg" /></p><P></P>The graphic module offers various windows that are used to control and visualize simulations. Some of them can be easily reused independently from <span style="font-family:Comic Sans MS;">Evolife</span> (e.g. <span class="xjlcode">Image_Area</span>, <span class="xjlcode">Draw_Area</span>, <span class="xjlcode">Plot_Area</span>, <span class="xjlcode">Ground</span>). <span class="xjlcode">Plot_Area</span> displays curves showing the evolution of simulation results through time (e.g. average value of genes). <span class="xjlcode">Genome_Area</span> displays the genome of all agents in the population. <span class="xjlcode">Field_Area</span> displays agents on a 2-D space. <span class="xjlcode">Network_Area</span> displays social links between agents.
+<br/>
+In the logic of QT, areas (QT&rsquo;s scenes) require a view to be displayed. This is the role of the widget <span class="xjlcode">AreaView</span> and its descendents. <span class="xjlcode">Active_Frame</span> adds keyboard shortcuts, so that the same keyboard actions will be available from any <span class="xjlcode">Satellite_window</span> (windows that display genomes, trajectories, field, ...).<P></P>The next figure illustrates the organization of the control windows, which constitutes the fifth and last module (the new classes are defined in <span class="xjlcode">Evolife_Window.py</span>).<P></P><p style="text-align:center"><IMG style="width:50%;" SRC="Images/Evolife_Window.svg" alt="Evolife_Window.svg" /></p><P></P><span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s main window is <span class="xjlcode">Evolife_Frame</span>. The class <span class="xjlcode">Evolife_Batch</span> is an alternative to it, which can be used in batch mode when no display is wanted. <span class="xjlcode">Simulation_Control</span> offers an interface with <span class="xjlcode">Simulation</span> (the simulation thread, when used (not used in the 2012 version and later)). <span class="xjlcode">Simulation_Control_Frame</span> offers control buttons, such as <span class="xjlcode">[Run]</span> and <span class="xjlcode">[Step]</span>. <span class="xjlcode">Simulation_Frame</span> adds a graphic zone that displays curves. It can be reused in other programmes. <span class="xjlcode">Evolife_Frame</span> inherits from it, adding concepts such as a genome window or a trajectory window, which are specific to <span style="font-family:Comic Sans MS;">Evolife</span>.<P></P> 
+<br/>
+<HR WIDTH="100%" ALIGN="LEFT"><P></P>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</div></BODY></HTML>

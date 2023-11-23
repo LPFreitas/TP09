@@ -1,0 +1,16 @@
+digraph Ecology {
+	color = "White"
+	bgcolor="#FFCF80";
+	/* label="Evolife files"; */
+	node  [style=filled,fillcolor="Red",fontname=Helvetica,fontcolor=White]; 
+	/*Void_Scenario [shape = ellipse];*/
+	Examiner; 
+	Storage -> Meta_Examiner -> Observer
+	Generic_Observer -> Experiment_Observer
+	Experiment_Observer -> Observer
+	Observer -> Evolife_Observer
+	Storage -> Examiner [style=dotted];
+	Examiner -> Meta_Examiner [style=dotted];
+	Storage -> Base_Examiner; 
+	Base_Examiner -> Examiner [style=dotted];
+}

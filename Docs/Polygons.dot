@@ -1,0 +1,16 @@
+digraph Polygons {
+color = "White"
+bgcolor="transparent";
+/*bgcolor="#FFCF80";*/
+label="Shape ontology";
+node  [style=filled,fillcolor="Red",fontname=Helvetica,fontcolor=White]; 
+/*Void_Scenario [shape = ellipse];*/
+form -> polygon;
+form -> ellipsoid;
+polygon -> square;
+polygon -> triangle;
+polygon -> pentagon;
+polygon -> hexagon;
+ellipsoid -> ellipse;
+ellipsoid -> circle;
+}

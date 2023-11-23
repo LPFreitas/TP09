@@ -1,0 +1,16 @@
+AgeMax	10
+AntInfluence	30
+ApplicationDir	.
+DisplayPeriod	30
+DisplaySize	100
+Icon	h-icon.png
+LoadDecay	20
+MessageDisplay	20
+FinalNumberOfNodes	100
+LinksPerNode	2
+RunConfigFile	_Params.evo
+ScenarioFileName	PreferentialAttachment.evo
+ScenarioName	PreferentialAttachment
+Target	PreferentialAttachment.py
+TimeLimit	500000
+Title	Evolife_Preferential_Attachment

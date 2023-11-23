@@ -1,0 +1,453 @@
+<Config>
+	<Parameter>
+		<Name>PARAMETERS</Name>
+		<Description><info><![CDATA[This is a configuration file editor designed to choose parameter values before launching Evolife simulations.<br><br>Its use is rather intuitive. You may click directly on values you want to change, or navigate with arrows and use the [F2] key to edit values.<br><br>Pay attention to explanations displayed in this panel.]]></info></Description>
+	</Parameter>
+	<Parameter>
+		<Name>Scenario</Name>
+		<Parameter>
+			<Name>ScenarioName</Name>
+			<Value>Patriot</Value>
+		</Parameter>
+		<Parameter>
+			<Name>ScenarioFileName</Name>
+			<Value>Patriot.evo</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Ecology</Name>
+		<Description><info><![CDATA[<br>]]></info></Description>
+		<Parameter Scenario="Patriot">
+			<Name>NbAgents</Name>
+			<Description><info><![CDATA[The size of the population is maintained constant <br><br>]]></info></Description>
+			<Value>200</Value>
+		</Parameter>
+		<Parameter Scenario="Sacrifice SacrificeJulien">
+			<Name>PopulationSize</Name>
+			<Description><info><![CDATA[The size of the population is maintained constant <br><br>]]></info></Description>
+			<Value>200</Value>
+		</Parameter>
+		<Parameter>
+			<Name>NumberOfGroups</Name>
+			<Description><info><![CDATA[Number of groups. Interactions occur within groups.<br><br>]]></info></Description>
+			<Value>4</Value>
+		</Parameter>
+		<Parameter Scenario="Sacrifice SacrificeJulien">
+			<Name>MigrationRate</Name>
+			<Description><info><![CDATA[Migration rate between groups in %.<br><br>]]></info></Description>
+			<Value>5</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot_Evolife Sacrifice SacrificeJulien">
+			<Name>ReproductionRate</Name>
+			<Description><info><![CDATA[Proportion of the population that is replaced with newborns each year (in %)<br>]]></info></Description>
+			<Value>5</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot_Evolife Sacrifice SacrificeJulien">
+			<Name>SelectionPressure</Name>
+			<Description><info><![CDATA[Defines how individual survival depends on score:<br><br>0 -->&nbsp;&nbsp; no bias<br>12 -->&nbsp;&nbsp;Highest scores may have 12 times less chance to be eliminated<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;than individuals with lowest scores<br><br>(Note that selection may also be achieved through differential reproduction<br>(see parameter Selectivity))<br><br>Important: For selection pressure to operate properly, scores should always be positive<br><br>Warning: This selection method tends to "saturate": when most scores reach high values,<br>the method is blind to slight differences among individuals. However, it might be less<br>violent than the selectivity method, which has converse qualities.<br><br>At the beginning of the 'Selection pressure' process, scores are linearly converted into life points (from 0 to SelectionPressure). Then individuals are repeatedly exposed to random accidents that cost them a life point. The process is repeated until the size of the population is brought back to its maximal value.]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot_Evolife Sacrifice SacrificeJulien">
+			<Name>Selectivity</Name>
+			<Description><info><![CDATA[Defines how parenthood is biased toward individuals with high scores<br><br>S == 0 --> no bias<br>S == 1 --> elitism is roughly linear<br>S == 20 --> strong elitism<br>S == 40 --> very strong elitism<br><br>(Note that selection may also be achieved through differential mortality <br>(see parameter SelectionPressure))<br><br> Warning: This selection method is elitist. It amplifies small differences among top inidividuals, <br>but fails to discriminate among the crowd. It favours extreme (or lucky) behaviour. The SelectionPressure method has converse <br>qualities.<br><br>At the beginning of the 'selectivity' process, individuals are ranked, based on their score. They are given a number of children that depends on their rank (which depends non-linearly on their score). Parents are repeatedly drawn from the set of individuals that still have children to beget.]]></info></Description>
+			<Value>10</Value>
+		</Parameter>
+		<Parameter>
+			<Name>AgeMax</Name>
+			<Description><info><![CDATA[after that age, the agent is reborn]]></info></Description>
+			<Value>500</Value>
+		</Parameter>
+		<Parameter Scenario="XXXXXXX">
+			<Name>Noise</Name>
+			<Description><info><![CDATA[Amplitude of a multiplicative noise<br>in % between 0 and 100<br>that affects interactions]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter Scenario="Patriot_Evolife Sacrifice SacrificeJulien">
+		<Name>Genetics</Name>
+		<Parameter>
+			<Name>MutationRate</Name>
+			<Description><info><![CDATA[Mutation rate in xxx/1000 <br>]]></info></Description>
+			<Value>5</Value>
+		</Parameter>
+		<Parameter>
+			<Name>NbCrossover</Name>
+			<Description><info><![CDATA[Indicates the number of cut points when performing crossover]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter>
+			<Name>GeneCoding</Name>
+			<Description><info><![CDATA[Indicates the way portions of DNA should ne interpreted<br>- Weighted: standard integer binary coding<br>- Unweighted: all bits play symmertrical roles <br>- Gray: Gray code<br>- Nocoding: genome is not decoded<br><br>Note: the WEIGHTED method may provoke sudden changes in gene expression. This may be good to escape from local <br>optima, since in the UNWEIGHTED condition, several mutations must be accumulated in the same individuals for significant change to occur.]]></info></Description>
+			<Value>Weighted</Value>
+			<Parameter>
+				<Name>Weighted</Name>
+				<Description><info><![CDATA[Genes interpreted as standard integer coding.<br>Advantage: many available values;<br>&nbsp;&nbsp;&nbsp;&nbsp;variable selection pressure on loci:<br>&nbsp;&nbsp;&nbsp;&nbsp;important loci evolve first.<br>&nbsp;&nbsp;&nbsp;&nbsp;Mutations on low bits have local effects<br>Caveat: getting from&nbsp;&nbsp;011111 to 100000 requires<br>&nbsp;&nbsp;&nbsp;&nbsp;six mutations, though the values are adjacent.]]></info></Description>
+				<Value>0</Value>
+			</Parameter>
+			<Parameter>
+				<Name>Unweighted</Name>
+				<Description><info><![CDATA[Genes interpreted as the sum of their bits<br>Advantage: all puncutal mutation have local effects<br>Caveat: only few values allowed if gene length is small, <br>&nbsp;&nbsp;&nbsp;&nbsp;and very slow evolution and high sensitivity to noise<br>&nbsp;&nbsp;&nbsp;&nbsp;if gene length is large]]></info></Description>
+				<Value>1</Value>
+			</Parameter>
+			<Parameter>
+				<Name>Gray</Name>
+				<Description><info><![CDATA[Genes are interpreted using a Gray code.<br>In a Gray code, neighbouring integers differ by only one bit.<br>Advantage: neighbouring values are reachable by punctual mutations <br>Caveat: most punctual mutations have non-local effects]]></info></Description>
+				<Value>2</Value>
+			</Parameter>
+			<Parameter>
+				<Name>NoCoding</Name>
+				<Value>-1</Value>
+			</Parameter>
+		</Parameter>
+		<Parameter>
+			<Name>GeneLength</Name>
+			<Description><info><![CDATA[Some scenarios don't specify gene length (by setting it to zero).<br>The value indicated here is taken as default value in this case.]]></info></Description>
+			<Value>8</Value>
+		</Parameter>
+		<Parameter>
+			<Name>DNAFill</Name>
+			<Description><info><![CDATA[DNA created from scratch may be random (DNAFill = -1) <br>or filled withl 0s (DNAFill = 0) or with 1s (DNAFill =1)]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter>
+			<Name>StartFromFile</Name>
+			<Description><info><![CDATA[Binary flag indicating if the population should be generated from<br>the genomes stored in the text file 'EvoStart.gen'<br>1 = reads 'EvoStart.gen'<br>0 = creates a new population from scratch (see parameter DNAFill)]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter Scenario="Patriot">
+		<Name>Sociology</Name>
+		<Parameter Scenario="Patriot">
+			<Name>MaxFriends</Name>
+			<Description><info><![CDATA[Maximum number of affiliations per individual]]></info></Description>
+			<Value>2</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>MaxFollowers</Name>
+			<Description><info><![CDATA[Maximum number of affiliated individuals]]></info></Description>
+			<Value>6</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>FollowerImpact</Name>
+			<Description><info><![CDATA[Advantage of having attracted a friend.]]></info></Description>
+			<Value>5</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>FollowingImpact</Name>
+			<Description><info><![CDATA[Advantage of following an individual of top quality.]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="Patriotxxxxxxx">
+			<Name>QualityImpact</Name>
+			<Description><info><![CDATA[Modulation of FollowingImpact depending on followee quality<br>(between 0 (quality is irrelevant) and 2 (linear variation between 0 for poorest quality and 2*FollowingImpact for highest quality)).]]></info></Description>
+			<Value>1.5</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>SocialMemory</Name>
+			<Description><info><![CDATA[Max number of individuals remembered for their signal]]></info></Description>
+			<Value>20</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>EraseNetwork</Name>
+			<Description><info><![CDATA[If non zero, erases social network each year.]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter Scenario="Patriot Sacrifice SacrificeJulien">
+		<Name>Interactions</Name>
+		<Parameter Scenario="Patriot">
+			<Name>NbRunPerYear</Name>
+			<Description><info><![CDATA[Numbers of interaction rounds each year- (Important in relation to AgeMax)]]></info></Description>
+			<Value>20</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>NbInteractions</Name>
+			<Description><info><![CDATA[Number of following opportunities between two individuals at each interaction round. <br>* if float (e.g. 2.3 or 1.0), NbInteractions is interpreted as the fraction of the population seen by each individual</br><br>* if integer, each individual meets all other individuals <i>systematically</i> NbInteractions times</br>]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter Scenario="Sacrifice">
+			<Name>GlobalRiskFactor</Name>
+			<Description><info><![CDATA[Risktaking is divided by GlobalRiskFactor.<br>Useful to amplify Risk Readiness on display</br>]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter Scenario="Sacrifice">
+			<Name>KamikazeAge</Name>
+			<Description><info><![CDATA[Percentage of life expextancy required to become a kamizaze]]></info></Description>
+			<Value>100</Value>
+		</Parameter>
+		<Parameter Scenario="Sacrifice">
+			<Name>ChildrenBonus</Name>
+			<Description><info><![CDATA[Advantage obtained by heroes' children]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter Scenario="Sacrifice">
+			<Name>SiblingBonus</Name>
+			<Description><info><![CDATA[Advantage obtained by heroes' siblings]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="Sacrifice">
+			<Name>PrestigeSharing</Name>
+			<Description><info><![CDATA[If non-zero, ChildrenBonus and SiblingBonus are divided by the number of heroes]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter Scenario="SacrificeJulien">
+			<Name>SacrificeHeredity</Name>
+			<Description><info><![CDATA[================]]></info></Description>
+			<Value>50</Value>
+		</Parameter>
+		<Parameter Scenario="SacrificeJulien">
+			<Name>RemThreshold</Name>
+			<Description><info><![CDATA[Max number of remembering individuals]]></info></Description>
+			<Value>5</Value>
+		</Parameter>
+		<Parameter Scenario="SacrificeJulien">
+			<Name>Forgetting</Name>
+			<Description><info><![CDATA[Max number of remembering individuals]]></info></Description>
+			<Value>25</Value>
+		</Parameter>
+		<Parameter Scenario="SacrificeJulien">
+			<Name>Admiration</Name>
+			<Description><info><![CDATA[Cost for admiring heroes]]></info></Description>
+			<Value>50</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter Scenario="Patriot">
+		<Name>Signals</Name>
+		<Parameter Scenario="Patriot">
+			<Name>SignalLevels</Name>
+			<Description><info><![CDATA[comma-separated levels,<br>or Number of signal levels defined using LevelBase. Set to 0 to avoid quantification.]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>LevelBase</Name>
+			<Description><info><![CDATA[Controls level distribution.<br>2 --> dichotomy</br><br>L --> level N-1 at 90/L.</br><br>0 --> evenly spaced levels</br>]]></info></Description>
+			<Value>2</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>SignalPrecision</Name>
+			<Description><info><![CDATA[Signal quantization (discrimination) when SignalLevels == 0.<br>It is the minimal difference below which signals are considered to be the same.</br><br>Represents individuals' ability to discern signal values.</br>]]></info></Description>
+			<Value>5</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>SignallingCost</Name>
+			<Description><info><![CDATA[Proportional cost of investment in signalling<br>(negative value typically between -100 and 0, but can be more negative)]]></info></Description>
+			<Value>-100</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>CostDecrease</Name>
+			<Description><info><![CDATA[This coefficient (typical values between 0 and 20) controls how cost decreases with quality<br><br>0 --> no bias<br>1 --> roughly linear decrease <br>20 --> strong decrease<br>40 --> very steep decrease]]></info></Description>
+			<Value>4</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>DrawCostline</Name>
+			<Description><info><![CDATA[If non-zero, draws cost coefficient depending on quality]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>BottomCompetence</Name>
+			<Description><info><![CDATA[minimum quality of individuals]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>Visibility</Name>
+			<Description><info><![CDATA[Baseline of probability that one's signal will be seen at each encounter<br></br>(between 0 and 100)]]></info></Description>
+			<Value>10</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>VisibilityGossip</Name>
+			<Description><info><![CDATA[Visibility when gossiping about others (between 0 and 100)]]></info></Description>
+			<Value>40</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>EnableMonitoring</Name>
+			<Description><info><![CDATA[If 0, Monitoring is always True]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>MonitoringCost</Name>
+			<Description><info><![CDATA[Monitoring max. cost<br>(negative value)]]></info></Description>
+			<Value>-2</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter Scenario="Patriot">
+		<Name>Policing</Name>
+		<Parameter Scenario="Patriot">
+			<Name>EnablePolicing</Name>
+			<Description><info><![CDATA[If 0, Policing is disable altogether]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>PolicingCost</Name>
+			<Description><info><![CDATA[Policing max. cost<br>(negative value)]]></info></Description>
+			<Value>-3</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>AdmirationImpact</Name>
+			<Description><info><![CDATA[Advantage of being praised]]></info></Description>
+			<Value>3</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>ContemptImpact</Name>
+			<Description><info><![CDATA[Effect of being negatively gossiped upon<br>(negative value)]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="Patriot">
+			<Name>SignalAmbiguity</Name>
+			<Description><info><![CDATA[If non zero, policing can be directed at individuals whose signal is unknown (due to partial visibility)]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="___Patriot">
+			<Name>Suspicion</Name>
+			<Description><info><![CDATA[With the 'Suspicion' probability, individuals that do not show themselves through policing and that are not visible by chance are consider dubious (their signal is regared as being below the observer's signal.<br></br>(between 0 and 100)]]></info></Description>
+			<Value>50</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter Scenario="Patriot">
+		<Name>Learning</Name>
+		<Parameter>
+			<Name>MemorySpan</Name>
+			<Description><info><![CDATA[memory of past success]]></info></Description>
+			<Value>20</Value>
+		</Parameter>
+		<Parameter>
+			<Name>LearningConservatism</Name>
+			<Description><info><![CDATA[Importance in % of immediate past solution]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter>
+			<Name>LearnHorizon</Name>
+			<Description><info><![CDATA[Beyond that portion in % of TimeLimit, individuals are born adults]]></info></Description>
+			<Value>10</Value>
+		</Parameter>
+		<Parameter>
+			<Name>LearningSpeed</Name>
+			<Description><info><![CDATA[Max additive exploration (for adults)]]></info></Description>
+			<Value>10</Value>
+		</Parameter>
+		<Parameter>
+			<Name>JumpProbability</Name>
+			<Description><info><![CDATA[Probability of maximal exploration (between 0 and 100)]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Infancy</Name>
+			<Description><info><![CDATA[Percent of AgeMax during which learning is faster]]></info></Description>
+			<Value>10</Value>
+		</Parameter>
+		<Parameter>
+			<Name>ImitationStrength</Name>
+			<Description><info><![CDATA[Influence of neighbours in %]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter>
+			<Name>LearningSimilarity</Name>
+			<Description><info><![CDATA[Influence of neighbouring feature values when retrieving best past feature value.<br>Between 0.1 (or so) and 100.<br>Influence of NeighbVal on Val is &nbsp;&nbsp;LearningSimilarity / abs(Val - NeighbVal)<br>10 means that a feature that differs by 30 contributes up to 1/3 of its value.<br>Put 0.1 or so to cancel the effect of neighbouring feature values.]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Toric</Name>
+			<Description><info><![CDATA[If 1, learning space is circular (toric): maximal feature values are next to smallest values.]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter>
+			<Name>LearningProbability</Name>
+			<Description><info><![CDATA[Proportion of agents that learn each year, in %]]></info></Description>
+			<Value>4</Value>
+		</Parameter>
+		<Parameter>
+			<Name>LearningStart</Name>
+			<Description><info><![CDATA[Features are created random (-1) or all-zero (0) or all-100 (1)]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Simulation</Name>
+		<Parameter>
+			<Name>BatchMode</Name>
+			<Description><info><![CDATA[set BatchMode to 1 to prevent display]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter>
+			<Name>TimeLimit</Name>
+			<Description><info><![CDATA[Max number of simulation steps]]></info></Description>
+			<Value>5000</Value>
+		</Parameter>
+		<Parameter>
+			<Name>ApplicationDir</Name>
+			<Description><info><![CDATA[Directory where the simulation can be found]]></info></Description>
+			<Value>.</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Target</Name>
+			<Description><info><![CDATA[Programme to be executed]]></info></Description>
+			<Value>Patriot.py</Value>
+		</Parameter>
+		<Parameter>
+			<Name>RunConfigFile</Name>
+			<Description><info><![CDATA[Parameter values that will be read by the programme]]></info></Description>
+			<Value>___Patriot.evo</Value>
+		</Parameter>
+		<Parameter>
+			<Name>RandomSeed</Name>
+			<Description><info><![CDATA[If non-zero, makes the simulation deterministic]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter>
+			<Name>DumpStart</Name>
+			<Description><info><![CDATA[Points located below this x-value are discarded from the computation of average values.<br>Average values thus reflect the stable regime.]]></info></Description>
+			<Value>500</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Display</Name>
+		<Parameter>
+			<Name>DisplayPeriod</Name>
+			<Description><info><![CDATA[Display period]]></info></Description>
+			<Value>10</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Title</Name>
+			<Description><info><![CDATA[Name of the present Configuration Editor]]></info></Description>
+			<Value>Evolife_Patriot</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Icon</Name>
+			<Description><info><![CDATA[local path to window icon]]></info></Description>
+			<Value>Knight.png</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Background</Name>
+			<Description><info><![CDATA[local path to window icon]]></info></Description>
+		</Parameter>
+		<Parameter>
+			<Name>Views</Name>
+			<Description><info><![CDATA[Windows displayed at start separated by '+'<br>Example: Field+Trajectories<br>Leave blank for default]]></info></Description>
+			<Value>Field</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Links</Name>
+			<Description><info><![CDATA[If non zero, links are displayed on Field window]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter>
+			<Name>AvgFriendDistance</Name>
+			<Description><info><![CDATA[If non zero, displays average distance between friends]]></info></Description>
+			<Value>0</Value>
+		</Parameter>
+		<Parameter Scenario="Values">
+			<Name>NbBins</Name>
+			<Description><info><![CDATA[Number of bins for cluster detection]]></info></Description>
+			<Value>5</Value>
+		</Parameter>
+		<Parameter Scenario="Values_dummy">
+			<Name>BinWidth</Name>
+			<Description><info><![CDATA[Width of bins for cluster detection]]></info></Description>
+			<Value>10</Value>
+		</Parameter>
+		<Parameter Scenario="Values">
+			<Name>NbClusters</Name>
+			<Description><info><![CDATA[Number of clusters to be displayed]]></info></Description>
+			<Value>3</Value>
+		</Parameter>
+	</Parameter>
+</Config>

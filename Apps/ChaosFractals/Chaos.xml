@@ -1,0 +1,122 @@
+<Config>
+	<Parameter>
+		<Name>Scenario</Name>
+		<Description><info><![CDATA[This is a configuration file editor designed to choose parameter values before launching Evolife simulations.<br><br>Its use is rather intuitive. You may click directly on values you want to change, or navigate with arrows and use the [F2] key to edit values.<br><br>Pay attention to explanations displayed in this panel.]]></info></Description>
+		<Parameter>
+			<Name>CurrentScenario</Name>
+			<Parameter>
+				<Name>ScenarioName</Name>
+				<Description><info><![CDATA[Simulates a network of websites]]></info></Description>
+				<Value>Chaos</Value>
+			</Parameter>
+			<Parameter>
+				<Name>ScenarioFileName</Name>
+				<Value>Chaos_triangle.evo</Value>
+			</Parameter>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Shape</Name>
+		<Description><info><![CDATA[Fractal forms may emerge from a simplistic non-deterministic procedure. Consider a real coefficient c between 0 and 100 and k points in the plane (vertices). Draw an additional random point P0. Take a random integer i between 1 and k. Draw a new point P1 at c% of the distance from P0 to the ith vertex. Repeat the procedure endlessly. If c is not too large, a fractal shape repeating the initial shape should emerge. <br>For a detailed demo, see: <a href="https://www.youtube.com/watch?v=kbKtFN71Lfs">https://www.youtube.com/watch?v=kbKtFN71Lfs</a>.]]></info></Description>
+		<Parameter Scenario="Chaos">
+			<Name>InitialDots</Name>
+			<Description><info><![CDATA[Initial dots to generate the shape.]]></info></Description>
+			<Value>[(10,10),(10,90),(90,90), (90,10)]</Value>
+		</Parameter>
+		<Parameter Scenario="Chaos">
+			<Name>Coefficient</Name>
+			<Description><info><![CDATA[Coefficient of the distance between dots and their predecessor.]]></info></Description>
+			<Value>0.5</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Fern</Name>
+		<Description><info><![CDATA[This fractal was named after British mathematician Michael
+		Barnsley who described it in his book Fractals everywhere in 1993.
+		The Barnsley fern is generated iteratively by starting from an initial point and drawing
+		a new dot at each step. The construction is based on a random choice, in the sense that at
+		each iteration, one out of four possible transforms is selected to compute the next point. The
+		four available transformations are affine functions of the plane.<br>For details, see: <a href="https://en.wikipedia.org/wiki/Barnsley_fern</a>.<br>For a detailed demo, see: <a https://www.youtube.com/watch?v=kbKtFN71Lfs</a>.]]></info></Description>
+		<Parameter Scenario="Fern">
+			<Name>InitialPos</Name>
+			<Description><info><![CDATA[Initial dots to generate the shape.]]></info></Description>
+			<Value>(5, 0)</Value>
+		</Parameter>
+		<Parameter Scenario="Fern">
+			<Name>F1_a_b_c_d_e_f</Name>
+			<Description><info><![CDATA[Initial dots to generate the shape.]]></info></Description>
+			<Value>[0, 0, 0, 0.16, 0, 0]</Value>
+		</Parameter>
+		<Parameter Scenario="Fern">
+			<Name>F2_a_b_c_d_e_f</Name>
+			<Description><info><![CDATA[Initial dots to generate the shape.]]></info></Description>
+			<Value>[0.75, 0.04, -0.04, 0.85, 0, 1.6]</Value>
+		</Parameter>
+		<Parameter Scenario="Fern">
+			<Name>F3_a_b_c_d_e_f</Name>
+			<Description><info><![CDATA[Initial dots to generate the shape.]]></info></Description>
+			<Value>[0.2, -0.26, 0.23, 0.22, 0, 1.6]</Value>
+		</Parameter>
+		<Parameter Scenario="Fern">
+			<Name>F4_a_b_c_d_e_f</Name>
+			<Description><info><![CDATA[Initial dots to generate the shape.]]></info></Description>
+			<Value>[-0.15, 0.28, 0.26, 0.24, 0, 0.44]</Value>
+		</Parameter>
+		<Parameter Scenario="Fern">
+			<Name>Weight_p1_p2_p3_p4</Name>
+			<Description><info><![CDATA[Initial dots to generate the shape.]]></info></Description>
+			<Value>[0.01, 0.85, 0.07, 0.07]</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Simulation</Name>
+		<Parameter>
+			<Name>TimeLimit</Name>
+			<Description><info><![CDATA[Max number of simulation steps]]></info></Description>
+			<Value>100000</Value>
+		</Parameter>
+		<Parameter>
+			<Name>ApplicationDir</Name>
+			<Description><info><![CDATA[Directory where the simulation can be found]]></info></Description>
+			<Value>.</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Target</Name>
+			<Description><info><![CDATA[Programme to be executed]]></info></Description>
+			<Value>Chaos.py</Value>
+		</Parameter>
+		<Parameter>
+			<Name>RunConfigFile</Name>
+			<Description><info><![CDATA[Parameter values that will be read by the programme]]></info></Description>
+			<Value>_Params.evo</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Title</Name>
+			<Description><info><![CDATA[Name of the present Configuration Editor]]></info></Description>
+			<Value>Evolife_Chaos</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Icon</Name>
+			<Description><info><![CDATA[local path to window icon]]></info></Description>
+			<Value>dice.png</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Display</Name>
+		<Parameter>
+			<Name>DotSize</Name>
+			<Description><info><![CDATA[Size of dots on display]]></info></Description>
+			<Value>2</Value>
+		</Parameter>
+		<Parameter>
+			<Name>DisplayPeriod</Name>
+			<Description><info><![CDATA[Controls the number of steps when the ant is moving between two nodes. Increase to speed up display (can also be changed with the ruler at execution time)]]></info></Description>
+			<Value>30</Value>
+		</Parameter>
+		<Parameter>
+			<Name>MessageDisplay</Name>
+			<Description><info><![CDATA[Frequency of message display]]></info></Description>
+			<Value>20</Value>
+		</Parameter>
+	</Parameter>
+</Config>

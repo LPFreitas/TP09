@@ -1,0 +1,118 @@
+<Config>
+	<Parameter>
+		<Name>Scenario</Name>
+		<Description><info><![CDATA[This is a configuration file editor designed to choose parameter values before launching Evolife simulations.<br><br>Its use is rather intuitive. You may click directly on values you want to change, or navigate with arrows and use the [F2] key to edit values.<br><br>Pay attention to explanations displayed in this panel.]]></info></Description>
+		<Parameter>
+			<Name>CurrentScenario</Name>
+			<Parameter>
+				<Name>ScenarioName</Name>
+				<Description><info><![CDATA[Simulates a network of websites]]></info></Description>
+				<Value>PreferentialAttachment</Value>
+			</Parameter>
+			<Parameter>
+				<Name>ScenarioFileName</Name>
+				<Value>PreferentialAttachment.evo</Value>
+			</Parameter>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Network</Name>
+		<Description><info><![CDATA[Properties of the communication network]]></info></Description>
+		<Parameter>
+			<Name>NumberOfNodes</Name>
+			<Description><info><![CDATA[Total number of nodes in the netwprk.]]></info></Description>
+			<Value>400</Value>
+		</Parameter>
+		<Parameter>
+			<Name>LinksPerNode</Name>
+			<Description><info><![CDATA[Max number of links created when a new node is introduced. <br>/!\ Should be smaller than the number of nodes.]]></info></Description>
+			<Value>4</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Strategy</Name>
+			<Description><info><![CDATA[May be any of:<p>- 'random' (or 0)<br>- 'PA' (or 1) meaning 'preferential attachment'<br>- pick (or 2).<p>In the random condition, nodes are linked to randomly chosen nodes. In the PA strategy, a sample is drawn from the population, links are examined within the sample, and the most connected node within the sample is chosen to link to. The pick strategy consists in selecting an edge at random and in connecting with one extremity of that edge.]]></info></Description>
+			<Value>random</Value>
+		</Parameter>
+		<Parameter>
+			<Name>SampleSize</Name>
+			<Description><info><![CDATA[Max size of the sample examined by nodes to find a suitable friend in the PA strategy (see strategy definition).]]></info></Description>
+			<Value>200</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Simulation</Name>
+		<Parameter>
+			<Name>Correction</Name>
+			<Description><info><![CDATA[Teacher's mode]]></info></Description>
+			<Value>1</Value>
+		</Parameter>
+		<Parameter>
+			<Name>TimeLimit</Name>
+			<Description><info><![CDATA[Max number of simulation steps]]></info></Description>
+			<Value>500000</Value>
+		</Parameter>
+		<Parameter>
+			<Name>ApplicationDir</Name>
+			<Description><info><![CDATA[Directory where the simulation can be found]]></info></Description>
+			<Value>.</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Target</Name>
+			<Description><info><![CDATA[Programme to be executed]]></info></Description>
+			<Value>PreferentialAttachment.py</Value>
+		</Parameter>
+		<Parameter>
+			<Name>RunConfigFile</Name>
+			<Description><info><![CDATA[Parameter values that will be read by the programme]]></info></Description>
+			<Value>_Params.evo</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Title</Name>
+			<Description><info><![CDATA[Name of the present Configuration Editor]]></info></Description>
+			<Value>Evolife_Preferential_Attachment</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Icon</Name>
+			<Description><info><![CDATA[local path to window icon]]></info></Description>
+			<Value>h-icon.png</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Display</Name>
+		<Parameter>
+			<Name>DisplaySize</Name>
+			<Description><info><![CDATA[Physical size of the display (in pixels)]]></info></Description>
+			<Value>100</Value>
+		</Parameter>
+		<Parameter>
+			<Name>DisplayPeriod</Name>
+			<Description><info><![CDATA[Controls the number of steps when the ant is moving between two nodes. Increase to speed up display (can also be changed with the ruler at execution time)]]></info></Description>
+			<Value>30</Value>
+		</Parameter>
+		<Parameter>
+			<Name>MessageDisplay</Name>
+			<Description><info><![CDATA[Frequency of message display]]></info></Description>
+			<Value>20</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>AgeMax</Name>
+		<Description><info><![CDATA[AgeMax]]></info></Description>
+		<Value>10</Value>
+	</Parameter>
+	<Parameter>
+		<Name>AntInfluence</Name>
+		<Description><info><![CDATA[AntInfluence]]></info></Description>
+		<Value>30</Value>
+	</Parameter>
+	<Parameter>
+		<Name>LoadDecay</Name>
+		<Description><info><![CDATA[LoadDecay]]></info></Description>
+		<Value>20</Value>
+	</Parameter>
+	<Parameter>
+		<Name>FinalNumberOfNodes</Name>
+		<Description><info><![CDATA[FinalNumberOfNodes]]></info></Description>
+		<Value>100</Value>
+	</Parameter>
+</Config>

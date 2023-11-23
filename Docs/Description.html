@@ -1,0 +1,31 @@
+<!DOCTYPE html><HTML><HEAD><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><TITLE>JL Dessalles - Evolife</TITLE>
+<link rel="stylesheet" type="text/css" href="Evolife.css" /></HEAD><BODY BGCOLOR="#FFEEAA"><div><P></P>
+<HR WIDTH="100%" ALIGN="LEFT"><P></P><span style="font-size:144%"><p style="text-align:center"><span style="font-family:Comic Sans MS;"><a href="http://evolife.dessalles.fr">Evolife</a></span></p></span>
+<p style="text-align:center"><a href="http://www.dessalles.fr">Jean-Louis Dessalles</a></p>
+<HR WIDTH="100%" ALIGN="LEFT">
+<IMG style=";float: right; padding-left: 15px;" SRC="Images/Courbes.jpg" alt="Courbes.jpg" />
+<ol  ><li><a href="Description.html">Overall description</a></li>
+<li><a href="Execution.html">How to execute Evolife</a> (+ download)</li>
+<li><a href="Sources.html">Evolife source files</a></li>
+<li><a href="Classes">Evolife classes and functions</a></li>
+<li><a href="Working.html">How Evolife works</a></li>
+<li><a href="Create_Scenario.html">Create your own Evolife scenario</a></li>
+<li><a href="Components.html">Use Evolife&rsquo;s components separately (graphics, ecology, genetic algorithm)</a></li></ol><P></P>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:120%">&#x21aa;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Classes">Program documentation</a></span>
+<br/>
+<HR WIDTH="100%" ALIGN="LEFT">
+<br/>
+ 
+<div id="H1"><h2>1. Overall description</h2></div>
+<span style="font-family:Comic Sans MS;">Evolife</span> has been developed by <a href="http://www.dessalles.fr">Jean-Louis Dessalles</a> for scientific and didactic purposes. Initially written in C++, it has been entirely rewritten in <a href="http://www.python.org/">Python</a> to improve readability.<P></P>The core of <span style="font-family:Comic Sans MS;">Evolife</span> is a genetic algorithm (GA). In a GA, &lsquo;individuals&rsquo; represent variant tentative solutions to a problem. Individuals&rsquo; behaviour is controlled by a binary vector called <i>genome</i> or DNA. They live, and reproduce &lsquo;sexually&rsquo; (though sexes are usually not differentiated). Reproduction is achieved by hybridizing genomes through crossover. Each &lsquo;year&rsquo;, best individuals are selected for reproduction. <span style="font-family:Comic Sans MS;">Evolife</span> implements two modes of selection:
+<ul  ><li>ranking: individuals are ranked according to their score, and are granted a number of potential children that is an increasing (non-linear) function of their rank.</li>
+<li>differential death: individuals get life points (generally in relation to their <i>score</i>) that protect them from life hazards, and thus increase their life expectancy (and their opportunities to reproduce).</li></ul>
+The first method is more in line with typical GA, whereas the second one looks more ecological.
+<br/>
+Scores depend on a &lsquo;problem&rsquo; to be solved. A few problems are already coded in the package, such as:
+<ul  ><li>the <i>binary sum</i>: the (somewhat trivial) problem is to maximize the number of 1 in the genome. This problem is given for didactic purposes, to demonstrate the respective roles of mutation and crossover in speeding evolution toward the optimum.</li>
+<li>the <i>labyrinth</i>: the GA&rsquo;s job is to go out of a maze. Users can control the evaluation function. The labyrinth can be displayed with the current best trajectory.</li>
+<li>the <i>favourable</i> mutation: very Darwinian in its spirit, this scenario allows to understand the conditions under which favourable mutation spread in an evolving population.</li></ul><P></P><span style="font-family:Comic Sans MS;">Evolife</span> is modular, which means that its code can be understood locally without full understanding of the whole programme.
+<br/>
+ <P></P><HR WIDTH="100%" ALIGN="LEFT"><P></P>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</div></BODY></HTML>

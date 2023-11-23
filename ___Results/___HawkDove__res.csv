@@ -1,0 +1,2 @@
+Date;AgeMax;BatchMode;BattleCost;DNAFill;DisplayPeriod;DumpStart;GeneCoding;GeneLength;GroupMinSize;Icon;MigrationRate;MutationRate;NbCrossover;Noise;NumberOfGroups;PieToShare;PopulationSize;ReproductionRate;ResultDir;Rounds;ScenarioName;SelectionPressure;Selectivity;StartFromFile;TimeLimit;Title;LastStep;Hawk;Peace
+231122135813;10;0;60;-1;10;30;Unweighted;8;0;Graphics/EvolifeIcon.png;5;5;1;0;6;10;300;20;./___Results;10;HawkDove;10;0;0;10000;Evolife;470;14;73

@@ -1,0 +1,59 @@
+<span style="font-family:\'Fira Mono Medium\',Courier">
+
+	%h2(%l+https://evolife.telecom-paris.fr(Evolife) documentation)
+
+
+	%large+2(%s(right)) %l+Classes.html(summary)
+	<hr/><p>	<p>
+<div id="Evolife.Scenarii.MyScenario"></div>******************************************************************************************<br>
+Module <span style="color:brown;font-weight:800">Evolife.Scenarii.MyScenario</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+==================================<br>
+Initialization of the scenario mentioned in Evolife_Defitions<br>
+******************************************************************************************<br>
+<br>
+<br>
+<div id="signature"></div>&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Function <span style="color:brown;font-weight:600">signature</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+<br>
+<br>
+<div id="AvailableScenarii"></div>&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Function <span style="color:brown;font-weight:600">AvailableScenarii</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+<br>
+<br>
+<div id="usage"></div>&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Function <span style="color:brown;font-weight:600">usage</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+<br>
+<br>
+<div id="RetrieveScenarioClass"></div>&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Function <span style="color:brown;font-weight:600">RetrieveScenarioClass</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;==============================<br>
+&nbsp;&nbsp;&nbsp;&nbsp;imports the file containing the scenario to retrieve the scenario class<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. ScenarioName<br>
+<br>
+<br>
+<div id="InstantiateScenario"></div>&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Function <span style="color:brown;font-weight:600">InstantiateScenario</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;============================<br>
+&nbsp;&nbsp;&nbsp;&nbsp;creates an actual scenario by instantiating the corresponding class<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--------------------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. ScenarioClass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. ScenarioName<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. CfgFileName<br>
+<br>
+<br>
+<div id="MyScenario"></div>&nbsp;&nbsp;&nbsp;&nbsp;**************************************************************************************<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Class <span style="color:brown;font-weight:600">MyScenario</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**************************************************************************************<br>
+<br>
+
+
+	<hr/><p>	<p>
+	%large(%l+https://evolife.telecom-paris.fr(Back to Evolife))
+
+</span>

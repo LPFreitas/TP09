@@ -5,7 +5,7 @@ DisplayPeriod	5
 DotSize	6
 Icon	settler.jpg
 LandSize	40
-NbColours	2
+NbColours	3
 NeighbourhoodRadius	1
 PopulationSize	1300
 ResultDir	./___Results

@@ -1,0 +1,2 @@
+Date;AgeMax;BatchMode;DNAFill;DisplayPeriod;DumpStart;Erosion;FirstStep;FirstStepCost;GeneCoding;GeneLength;GroupMinSize;Icon;MutationRate;NbCrossover;Noise;NumberOfGroups;PopulationSize;ReproductionRate;ResultDir;Rounds;ScenarioName;SelectionPressure;Selectivity;StartFromFile;TimeLimit;Title;LastStep;Cooperativeness;Exploration
+231122145254;10;0;-1;30;100;0;100;30;Unweighted;10;0;Graphics/EvolifeIcon.png;5;1;0;1;100;15;./___Results;10;Cooperation;0;10;0;20000;Evolife;5020;97;76

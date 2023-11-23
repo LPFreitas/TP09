@@ -1,0 +1,19 @@
+This program simulates a population of individuals 
+who have to choose other individuals to link to.
+
+Strategies:
+
+	0- random: Individuals connect with randomly chosen individuals.
+	1- PA: (preferential attachment) Individuals pick a sample 
+	  and observe links internal to this sample. 
+	  They then connect with the most popular individual of the sample.
+	2- pick: individuals select an edge, and then connect with one 
+	  of the two extremities of that edge.  (to be implemented)
+
+	
+The "Network" window shows links between nodes.
+
+The "Degree distribution" window shows degree distribution for degrees larger than 'LinksPerNode'
+in logarithmic scales.
+
+[Press Esc]

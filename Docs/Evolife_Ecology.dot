@@ -1,0 +1,18 @@
+digraph Ecology {
+	color = "White"
+	bgcolor="#FFCF80";
+	/* label="Evolife files"; */
+	node  [style=filled,fillcolor="Red",fontname=Helvetica,fontcolor=White]; 
+	/*Void_Scenario [shape = ellipse];*/
+	DNA -> Genome -> EvolifeIndividual; 
+	Phenome -> EvolifeIndividual; 
+	Alliances -> EvolifeIndividual; 
+	Gene; Phene; Club;
+	Individual -> EvolifeIndividual;
+	Club -> Alliances [style=dotted];
+	Phene -> Phenome [style=dotted];
+	Gene -> Genome [style=dotted];
+	EvolifeIndividual -> EvolifeGroup -> EvolifePopulation [style=dotted];
+	Group -> EvolifeGroup;
+	Population -> EvolifePopulation;
+}

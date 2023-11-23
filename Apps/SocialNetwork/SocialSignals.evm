@@ -1,0 +1,7 @@
+BatchMode	1
+DisplayPeriod	10
+LearningSpeed	1 5
+MaxFriends	1
+PerceptionNoise	0 2 5 10 20 30
+TimeLimit	5000
+

@@ -1,0 +1,2 @@
+Date;AgeMax;BatchMode;Compass;DNAFill;DisplayPeriod;DumpStart;GeneCoding;GeneLength;GroupMinSize;Icon;MutationRate;NbCrossover;Noise;NumberOfGroups;PopulationSize;ResultDir;ScenarioName;Selectivity;StartFromFile;TimeLimit;Title;WDGridSize;LastStep;Reproduction;PopSize10
+231122152205;4000;0;0;-1;50;100;Nocoding;0;0;Graphics/EvolifeIcon.png;3;2;0;1;400;./___Results;WernerDyer;3;0;20000;Evolife;400;6400;10;40

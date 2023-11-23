@@ -21,7 +21,7 @@
 		<Parameter Scenario="Segregationism Convention">
 			<Name>NbColours</Name>
 			<Description><info><![CDATA[Number of different agent types (colours)]]></info></Description>
-			<Value>2</Value>
+			<Value>3</Value>
 		</Parameter>
 		<Parameter>
 			<Name>NeighbourhoodRadius</Name>

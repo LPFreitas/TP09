@@ -1,0 +1,68 @@
+<!DOCTYPE html><HTML><HEAD><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><TITLE>JL Dessalles - Evolife</TITLE>
+<link rel="stylesheet" type="text/css" href="Evolife.css" /></HEAD><BODY BGCOLOR="#FFEEAA"><div><P></P>
+<HR WIDTH="100%" ALIGN="LEFT"><P></P><span style="font-size:144%"><p style="text-align:center"><span style="font-family:Comic Sans MS;"><a href="http://evolife.dessalles.fr">Evolife</a></span></p></span>
+<p style="text-align:center"><a href="http://www.dessalles.fr">Jean-Louis Dessalles</a></p>
+<HR WIDTH="100%" ALIGN="LEFT">
+<IMG style=";float: right; padding-left: 15px;" SRC="Images/Courbes.jpg" alt="Courbes.jpg" />
+<ol  ><li><a href="Description.html">Overall description</a></li>
+<li><a href="Execution.html">How to execute Evolife</a> (+ download)</li>
+<li><a href="Sources.html">Evolife source files</a></li>
+<li><a href="Classes">Evolife classes and functions</a></li>
+<li><a href="Working.html">How Evolife works</a></li>
+<li><a href="Create_Scenario.html">Create your own Evolife scenario</a></li>
+<li><a href="Components.html">Use Evolife&rsquo;s components separately (graphics, ecology, genetic algorithm)</a></li></ol><P></P>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:120%">&#x21aa;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Classes">Program documentation</a></span>
+<br/>
+<HR WIDTH="100%" ALIGN="LEFT">
+<br/>
+ 
+<div id="H1"><h2>7. Create you own <span style="font-family:Comic Sans MS;">Evolife</span> scenario</h2></div>
+<br/>
+<span style="font-family:Comic Sans MS;">Evolife</span> allows you to study an evolving population, either to implement a genetic algorithm or to perform some ecological study. If you do not need all of this, consider <a href="Components">section 8</a> about using only some of <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s components.<P></P><span style="font-family:Comic Sans MS;">Evolife</span> scenarios vary:
+<ol  ><li>by parameters and values defined in the configuration file (<span class="xjlcode">xxx.evo</span>) that you load with <span class="xjlcode">starter</span>.</li>
+<li>by different default functions implemented in <span class="xjlcode">Default_Scenario.py</span> (in <span class="xjlcode">Scenarii</span>) that you can redefine.</li></ol><P></P>There are several possibilities to create your own scenario by rewriting functions from <span class="xjlcode">Default_Scenario.py</span>:
+<ul  ><li>Customize an existing scenario by copying and modifying an existing scenario <span class="xjlcode">Scenarii/S_xxx.py</span>.</li>
+<li>Alternatively, customize <span class="xjlcode">Scenarii/CustomScenario.py</span>. The program imports everything it needs from <span style="font-family:Comic Sans MS;">Evolife</span>, and reads the configuration file <span class="xjlcode">MyCustomScenario.evo</span>. <u><br>Choose this option only if you need to re-implement</u> one of the classes: <span class="xjlcode">Individual, Group, Population, Observer</span>.</li></ul>
+<div id="H2"><h3>Customizing a scenario</h3></div>
+You may look in <span class="xjlcode">Scenarii</span> for the scenario that is closest to what you wish to do. Let&rsquo;s mention:
+<ul  ><li><span class="xjlcode">S_SumBits.py</span>:&nbsp;&nbsp;&nbsp;&nbsp;a simple genetic algorithm</li>
+<li><span class="xjlcode">S_Labyrinth.py</span>:&nbsp;&nbsp;&nbsp;&nbsp;a genetic algorithm with phenotype</li>
+<li><span class="xjlcode">S_Favourable.py</span>:&nbsp;&nbsp;&nbsp;&nbsp;a simple ecological simulation</li>
+<li><span class="xjlcode">S_Void.py</span>:&nbsp;&nbsp;&nbsp;&nbsp;a void scenario that you can customize</li></ul><P></P>You may cut-and-paste and rewrite all functions inherited from <span class="xjlcode">Default_Scenario</span> (defined in <span class="xjlcode">Default_Scenario.py</span>). These include:
+<ol style="list-style-type:none" ><li>&#8211; <span class="xjlcode">initialization(self)</span>: allows to define local variables</li>
+<li>&#8211; <span class="xjlcode">genemap(self)</span>:  initialises the genes on the gene map (see <span class="xjlcode">Genetic_map.py</span>)</li>
+<li>&#8211; <span class="xjlcode">phenemap(self)</span>:   defines a list of phenotypic character names (see <span class="xjlcode">Phenotype.py</span>)</li>
+<li>+ <span class="xjlcode">season(self, year)</span>:   makes periodic actions like resetting parameters</li>
+<li>+ <span class="xjlcode">behaviour(self, BestIndiv, AvgIndiv)</span>:   defines a behaviour to be displayed</li>
+<li>+ <span class="xjlcode">life_game(self, members)</span>: defines a round of interactions &#8211; calls the five following functions<ul style="list-style-type:none"></li>
+<li>&#8211; <span class="xjlcode">start_game(self, members)</span>: group-level initialization before starting interactions<ul style="list-style-type:none"></li>
+<li>&#8211; <span class="xjlcode">prepare(self, indiv)</span>: individual initialization before starting interactions</ul></li>
+<li>&#8211; <span class="xjlcode">interaction(self, Indiv, Partner)</span>: defines a single interaction<ul style="list-style-type:none"></li>
+<li>&#8211; <span class="xjlcode">partner(self, Indiv, members)</span>: select a partner among <span class="xjlcode">members</span> that will interact with <span class="xjlcode">Indiv</span></ul></li>
+<li>&#8211; <span class="xjlcode">end_game(self, members)</span>: an occasion for a closing round after all interactions</li>
+<li>&#8211; <span class="xjlcode">evaluation(self, Indiv)</span>: defines how the score of an individual is computed</li>
+<li>&#8211; <span class="xjlcode">lives(self, members)</span>: converts scores into life points</ul></li>
+<li>+ <span class="xjlcode">couples(self, members)</span>: returns a list of couples for procreation (individuals may appear in several couples!). Calls the following function):<ul style="list-style-type:none"></li>
+<li>&#8211; <span class="xjlcode">parenthood(self, RankedCandidates, Def_Nb_Children)</span>:&nbsp;&nbsp;&nbsp;&nbsp;Determines the number of children depending on rank</li>
+<li>&#8211; <span class="xjlcode">parents(self, candidates)</span>:&nbsp;&nbsp;&nbsp;&nbsp;selects two parents from a list of candidates (candidate = <span class="xjlcode">(indiv, NbOfPotentialChildren)</span>)</ul></li>
+<li>+ <span class="xjlcode">new_agent(self, child, parents)</span>: initializes newborns</li>
+<li>+ <span class="xjlcode">remove_agent(self, agent)</span>: action to be performed when an agent dies</li>
+<li>+ <span class="xjlcode">update_positions(self, members, groupID)</span>:              assigns a position to agents</li>
+<li>* <span class="xjlcode">default_view(self)</span>: says which windows should be open at start up</li>
+<li>* <span class="xjlcode">legends(self)</span>: returns a string to be displayed at the bottom ot the Legend window.</li>
+<li>* <span class="xjlcode">display_(self)</span>:   says which statistics are displayed each year</li>
+<li>* <span class="xjlcode">Field_grid(self)</span>:&nbsp;&nbsp;&nbsp;&nbsp;initial draw in the Field window</li>
+<li>* <span class="xjlcode">Trajectory_grid(self)</span>:&nbsp;&nbsp;&nbsp;&nbsp;initial draw in the Trajectory window</li>
+<li>* <span class="xjlcode">wallpaper(self, Window)</span>:              if one wants to display different backgrounds in windows</li></ol><P></P>Functions marked with &lsquo;&#8211;&rsquo; are called from within the scenario.
+<br/>
+Functions marked with &lsquo;+&rsquo; are called from <span class="xjlcode">Group.py</span>.
+<br/>
+Functions marked with &lsquo;*&rsquo; are called from <span class="xjlcode">Observer.py</span>.<P></P>You may then run the scenario by choosing MyScenario.evo from the Configuration Editor.
+<div id="H3"><h3>To create a scenario from scratch</h3></div>
+<ol  ><li>Suppose you want to run a simulation of beehive. Create a new file, e.g. <span class="xjlcode">S_Beehive.py</span> (or any appropriate name starting with <span class="xjlcode">S_</span>) in the directory <span class="xjlcode">Scenarii</span> by copying an existing scenario (pick the one that seems to resemble your own project most closely, e.g. <span class="xjlcode">S_SexRatio.py</span>).</li>
+<li>Customize <span class="xjlcode">S_Beehive.py</span> by rewriting any functions inherited from <span class="xjlcode">Default_Scenario</span>  (some have been listed in the preceding section).</li>
+<li>Create a <span class="xjlcode">Beehive.evo</span> configuration file at an appropriate location (typically in the <span class="xjlcode">Expe</span> directory). This file should include many of the parameter-value pairs that <span style="font-family:Comic Sans MS;">Evolife</span> is looking for, such as <span class="xjlcode">PopulationSize</span> or <span class="xjlcode">MutationRate</span>.</li>
+<li>You can edit the new parameter-value pairs you introduced in the <span class="xjlcode">.evo</span> configuration file using the confituration editor (<span class="xjlcode">starter</span>). Your parameters will be merely added at the bottom after you have loaded <span class="xjlcode">Beehive.evo</span>. If you want a cleaner aspect, you should edit the appropriate  <span class="xjlcode">.xml</span> file loaded by <span class="xjlcode">starter</span>. Then restart the Configuration Editor by executing <span class="xjlcode">./starter</span>.  After setting all relevant parameters to the desired values, you can run <span style="font-family:Comic Sans MS;">Evolife</span> with your scenario by clicking on <span class="xjlcode">[Run]</span>.</li></ol>
+<br/>
+If you REALLY need to re-implement classes such as <span class="xjlcode">Individual</span>, <span class="xjlcode">Group</span>, <span class="xjlcode">Population</span> or <span class="xjlcode">Observer</span>, do the same by rewriting <span class="xjlcode">CustomScenario</span>.<P></P>&nbsp;&nbsp;&nbsp;&nbsp;<P></P><HR WIDTH="100%" ALIGN="LEFT"><P></P>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</div></BODY></HTML>

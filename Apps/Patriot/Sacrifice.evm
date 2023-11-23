@@ -1,0 +1,8 @@
+BatchMode	1
+ChildrenBonus	1
+SiblingBonus	0
+AgeMax	10-50 2
+AgeMinHero	0-150 10
+Selectivity	0-200 2
+SelectionPressure	0
+GeneLength	1-16 1

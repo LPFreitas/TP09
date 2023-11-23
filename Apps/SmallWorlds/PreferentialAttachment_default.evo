@@ -1,0 +1,16 @@
+ApplicationDir	.
+Correction	0
+DisplayPeriod	30
+DisplaySize	800
+Icon	h-icon.png
+LinksPerNode	4
+MessageDisplay	20
+NumberOfNodes	400
+RunConfigFile	_Params.evo
+SampleSize	200
+ScenarioFileName	PreferentialAttachment_default.evo
+ScenarioName	Preferential Attachment
+Strategy	random
+Target	PreferentialAttachment.py
+TimeLimit	100000
+Title	Evolife_Preferential_Attachment

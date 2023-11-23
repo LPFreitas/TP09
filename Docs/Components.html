@@ -1,0 +1,136 @@
+<!DOCTYPE html><HTML><HEAD><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><TITLE>JL Dessalles - Evolife</TITLE>
+<link rel="stylesheet" type="text/css" href="Evolife.css" /></HEAD><BODY BGCOLOR="#FFEEAA"><div><P></P>
+<HR WIDTH="100%" ALIGN="LEFT"><P></P><span style="font-size:144%"><p style="text-align:center"><span style="font-family:Comic Sans MS;"><a href="http://evolife.dessalles.fr">Evolife</a></span></p></span>
+<p style="text-align:center"><a href="http://www.dessalles.fr">Jean-Louis Dessalles</a></p>
+<HR WIDTH="100%" ALIGN="LEFT">
+<IMG style=";float: right; padding-left: 15px;" SRC="Images/Courbes.jpg" alt="Courbes.jpg" />
+<ol  ><li><a href="Description.html">Overall description</a></li>
+<li><a href="Execution.html">How to execute Evolife</a> (+ download)</li>
+<li><a href="Sources.html">Evolife source files</a></li>
+<li><a href="Classes">Evolife classes and functions</a></li>
+<li><a href="Working.html">How Evolife works</a></li>
+<li><a href="Create_Scenario.html">Create your own Evolife scenario</a></li>
+<li><a href="Components.html">Use Evolife&rsquo;s components separately (graphics, ecology, genetic algorithm)</a></li></ol><P></P>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:120%">&#x21aa;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Classes">Program documentation</a></span>
+<br/>
+<HR WIDTH="100%" ALIGN="LEFT">
+<br/>
+ 
+<div id="H1"><h2>8. Use <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s components separately (graphics, ecology, genetic algorithm)</h2></div>
+Some examples illustrating how to use some of <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s components are available.
+<br/>
+To see how to use <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s graphic, look at <span class="xjlcode">Trajectories.py</span> or <span class="xjlcode">GraphicExample.py</span> in <span class="xjlcode">Graphics</span>.
+The latter implements many of <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s graphic capabilities (including drawing, moving objects, curves, mouse clicks) together with comments.
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+<table  style="width:70%;border: 1px solid #0C2340;"><caption><i>Some basic graphic examples (in the directory <span class="xjlcode">Examples</span>)</i></caption><TR>
+<TD><span class="xjlcode">Trajectories.py</span>
+</TD>
+<TD>Simple example to show how <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s graphics can be used to display movement.
+</TD>
+<TD>animated graphics</TD>
+</TR>
+<TR>
+<TD><span class="xjlcode">GraphicExample.py</span>
+</TD>
+<TD>More elaborate example to show how to use <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s graphics.
+</TD>
+<TD>animated graphics</TD>
+</TR></table><P></P>To see how to introduce a genetic algorithm in a non-GA application, look at the difference between <span class="xjlcode">Segregationism.py</span> and <span class="xjlcode">SegregationismGA.py</span>. The main difference is in the name of inherited classes. Note that reproduction significantly slows down execution.<P></P>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+<table  style="width:70%;border: 1px solid #0C2340;"><caption><i>Other examples (in the directory <span class="xjlcode">Other</span>)</i></caption><TR>
+<TD><span class="xjlcode">Ants</span>
+</TD>
+<TD>moving ants foraging for food
+</TD>
+<TD>animated&nbsp;graphics&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR>
+<TD><span class="xjlcode">CellularAutomaton</span>
+</TD>
+<TD>a basic implementation of 1-D C.A.
+</TD>
+<TD>just drawing</TD>
+</TR>
+<TR>
+<TD><span class="xjlcode">Cocktail</span>
+</TD>
+<TD>the cocktail party effect
+</TD>
+<TD>animated graphics</TD>
+</TR>
+<TR>
+<TD><span class="xjlcode">Segregationism</span>
+</TD>
+<TD>Thomas Schelling&rsquo;s famous experiment
+</TD>
+<TD>animated graphics</TD>
+</TR>
+<TR>
+<TD><span class="xjlcode">SegregationismGA</span>
+</TD>
+<TD>Thomas Schelling&rsquo;s famous experiment
+</TD>
+<TD>same + GA</TD>
+</TR>
+<TR>
+<TD><span class="xjlcode">Swallows</span>
+</TD>
+<TD>Collective decision
+</TD>
+<TD>animated graphics</TD>
+</TR>
+<TR>
+<TD><span class="xjlcode">EcologyExample.py</span>
+</TD>
+<TD>Just a living population
+</TD>
+<TD>ecology, no GA</TD>
+</TR>
+<TR>
+<TD><span class="xjlcode">GAExample.py</span>
+</TD>
+<TD><span style="font-family:Comic Sans MS;">Evolife</span> void scenario, waiting for being customized
+</TD>
+<TD>GA</TD>
+</TR></table><P></P><P></P>The six first examples in the above list can be executed in their respective directories by executing <span class="xjlcode">starter</span>.
+<br/>
+This is a snapshot of the <span class="xjlcode">Swallows.py</span> program.<P></P><p style="text-align:center"><IMG style="width:444px;" SRC="Images/SwallowScr.png" alt="SwallowScr.png" /></p><P></P>In all these example, you can see that the interface with <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s graphics is achieved using the function <span class="xjlcode">Start</span>:
+<br/>
+<span class="xjlcode">Evolife.Graphics.Start(OneStep, MyObserver, Capabilities)</span>
+<ul  ><li><span class="xjlcode">OneStep</span> is a function of yours that will be called repeatedly at each time step. <span class="xjlcode">OneStep</span> should call <span class="xjlcode">MyObserver.season()</span> to increment time step.</li>
+<li><span class="xjlcode">MyObserver</span> will provide data from your simulation (see below).</li>
+<li><span class="xjlcode">Capabilities</span> should be a string of letters taken from:<ul></li>
+<li><span class="xjlcode">C</span> = Curves</li>
+<li><span class="xjlcode">F</span> = Field (2D seasonal display) (excludes R)</li>
+<li><span class="xjlcode">G</span> = Genome display</li>
+<li><span class="xjlcode">L</span> = Log Terminal (not implemented)</li>
+<li><span class="xjlcode">N</span> = Social network display (connectome)</li>
+<li><span class="xjlcode">P</span> = Photo (allows to take screenshots)</li>
+<li><span class="xjlcode">R</span> = Region (2D ongoing display) (excludes F)</ul></li></ul><P></P>Your programme may define a class <span class="xjlcode">MyObserver</span> that inherits 
+<br/>
+<span class="xjlcode">Evolife.Ecology.Observer.Observer</span><P></P>Your <span class="xjlcode">MyObserver</span> class may redefine the following functions :<P></P>1. <span class="xjlcode">get_data(Slot)</span>. This function is called from <span class="xjlcode">Evolife_window.py</span>. The main slots are:
+<ul  ><li><span class="xjlcode">Positions</span>. This slot is used to display agents on a 2-D field or region. In this case, <span class="xjlcode">get_data</span> should return a list (or a tuple) containing tuples:<br><span class="xjlcode">((Name1, Coord1), (Name2, Coord2). . .)</span> or simply <span class="xjlcode">(Coord1, Coord2. . .)</span>.<br>The first format is required for animation: by resending new coordinates for <span class="xjlcode">(NameX)</span>, the corresponding object moves.<br>Coord is a tuple with up to 8 values (missing values are replaced by defaults):<br><span class="xjlcode">Coord  = (x, y, colour, size, ToX, ToY, ToColour, ToThickness)</span>.<br>The first four values define a &lsquo;blob&rsquo;, and the four last define an optional line drawn from the blob (see <span class="xjlcode">GraphicExample.py</span>).<br><span class="xjlcode">Colours</span> are <a href="Colors.html">Evolife Colours</a> or numbers between 1 and something like 45. When <span class="xjlcode">colour < 0</span>, the agent is removed from display.<br>When using <span class="xjlcode">Field</span>, <span class="xjlcode">get_data(&#39;Positions&#39;)</span> should return all coordinates of all agents (missing agents will be removed from display).<br>When using <span class="xjlcode">Region</span>, you need only to provide coordinates for agents that have changed location. Give a negative colour to remove an agent from display.</li>
+<li><span class="xjlcode">Network</span>. This slot is used to display social links. <span class="xjlcode">get_data</span> should return a list (or a tuple) containing tuples <span class="xjlcode">(Name, [(Friend1,Strength),...])</span>, where <span class="xjlcode">Name</span> defines an agent, <span class="xjlcode">Friend1</span> its best friend and <span class="xjlcode">Strength</span> the intensity of the link (may be 0 if irrelevant).</li>
+<li><span class="xjlcode">DNA</span>. This slot is used to display the genomes of a whole group (one line per individual). <span class="xjlcode">get_data(&#39;DNA&#39;)</span> should return a list (or tuple) containing tuples like <span class="xjlcode">(0,0,1,0,1...)</span> that indicate the genome of one individual.</li>
+<li><span class="xjlcode">Image</span>. This slot is used to display images.</li></ul>
+2. <span class="xjlcode">get_info(Slot)</span>. Possible slots (see <span class="xjlcode">Evolife_window.py</span>) are:
+<ul  ><li><span class="xjlcode">ScenarioName</span>. Should return a string.</li>
+<li><span class="xjlcode">CurveNames</span>. Should return a tuple or list of couples <span class="xjlcode">(Colour, CurveName)</span> where <span class="xjlcode">Colour</span> is a string (one of Evolife&rsquo;s colours) or a number between 1 and something like 45, and <span class="xjlcode">CurveName</span> is a string that provides semantics to the curve (but see below).</li>
+<li><span class="xjlcode">WindowLegends</span>. Should return a string which will be displayed in the "Legend" window. Useful to describe the content of windows (Field, Social Network, Trajectories)</li>
+<li><span class="xjlcode">GenePattern</span>. Should return a mask <span class="xjlcode">(0,0,0,0,0,1,1,1,1...)</span> that provides gene boundaries. This pattern and all elements returned by <span class="xjlcode">get_data(&#39;DNA&#39;)</span> should have the same length.</li>
+<li><span class="xjlcode">Best</span>. Should return the phenotype of the best individual. Typically a path (successive positions).</li>
+<li><span class="xjlcode">Icon</span>. Should returns the path to an icon for the windows of your application.</li>
+<li><span class="xjlcode">EvolifeMainDir</span>. Should return the path to your application.</li>
+<li><span class="xjlcode">OutputDir</span>. Should return the path to the location where results are to be stored.</li>
+<li><span class="xjlcode">ResultFile</span>. Should return the path to the file where curves are dumped.</li>
+<li><span class="xjlcode">ResultHeader</span>. First lines that should appear in curve dump.</li>
+<li><span class="xjlcode">ResultOffset</span>. Should return an integer indicating the number of lines to be ignored when computing statistics.</li></ul>
+3. <span class="xjlcode">GetPlotOrders</span>. This function should return a list containing couples: <span class="xjlcode">[(Curve_id, (x,y)),...]</span> where <span class="xjlcode">Curve_id</span> is an <a href="Colors.html">Evolife Colour name</a> or a number indicating the colour (between 1 and something like 45), and <span class="xjlcode">(x,y)</span> are the coordinates of the next point to plot on the curve. 
+<br/>
+<span class="xjlcode">x</span> is typically equal to <span class="xjlcode">MyObserver.StepId</span>, which represent the current year. 
+<br/>
+<span class="xjlcode">StepId</span> can be incremented by calling <span class="xjlcode">MyObserver.season()</span>.<P></P>The preceding functions need only be implemented when the corresponding capabilities are indicated when calling Start.<P></P>As an alternative to <span class="xjlcode">CurveNames</span>, you may use the <span class="xjlcode">curve</span> function:<P></P><span class="xjlcode"><br/>&nbsp;&nbsp;&nbsp;&nbsp;self.curve()&nbsp;&nbsp;&nbsp;&nbsp;# resets curve definitions<br/>&nbsp;&nbsp;&nbsp;&nbsp;self.curve(Name, Colour, Description)&nbsp;&nbsp;&nbsp;&nbsp;# defines a new curve<br/>&nbsp;&nbsp;&nbsp;&nbsp;self.curve(Name)&nbsp;&nbsp;&nbsp;&nbsp;# returns the colour of an already defined function</span><P></P><span class="xjlcode">Colour</span> is an <a href="Colors.html">Evolife Colour</a> or a number.
+For instance, the slot <span class="xjlcode">GetPlotOrders</span> may return something like:<P></P><span class="xjlcode"><br/>def get_info(self, Slot):<br/>&nbsp;&nbsp;&nbsp;&nbsp;if Slot == &#39;PlotOrders&#39;:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [(self.curve(&#39;my curve&#39;), (self.StepId, some_value))]<br/>&nbsp;&nbsp;&nbsp;&nbsp;...</span><P></P>&nbsp;&nbsp;&nbsp;&nbsp;<P></P><HR WIDTH="100%" ALIGN="LEFT"><P></P>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</div></BODY></HTML>

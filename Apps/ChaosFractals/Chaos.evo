@@ -1,0 +1,14 @@
+ParamName	ParamValue
+ApplicationDir	.
+Coefficient	0.5
+DisplayPeriod	30
+DotSize	2
+Icon	dice.png
+InitialDots	[(10, 10), (50, 90), (90, 10)]
+MessageDisplay	20
+RunConfigFile	_Params.evo
+ScenarioFileName	Chaos.evo
+ScenarioName	Chaos
+Target	Chaos.py
+TimeLimit	500000
+Title	Evolife_Chaos

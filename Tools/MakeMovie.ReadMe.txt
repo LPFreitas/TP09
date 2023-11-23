@@ -1,0 +1,43 @@
+
+To make an Evolife movie
+========================
+
+- Run the simulation (with all the desired windows open) in Film mode (shortcut 'V').
+then go into ___Results
+
+
+If you have ImageMagick:
+=======================
+- Edit (if necessary) and run Evolife/Tools/MakeMovie.py
+  This creates ___CF_00001.png files.
+  These files can be concatenated into an animated gif file with ImageMagick
+  through the command Evolife/Tools/MakeGif.bat
+  or:   convert.bat -delay 1 ___CF_0*.png -loop 1 EvolifeMovie.gif
+  or:	c:convert -delay 1 ___CF_0*.png -loop 1 EvolifeMovie.gif
+- create a mp4 or mpeg file: (assuming frames numbered with six digits, 10 frames/s)
+  c:ffmpeg -r 10 -i ___CF_%06d.png -c:v libx264 -s wvga -aspect 16:9 out.mp4
+  Then compress the video out.mp4 using program such as Any Video Converter.
+  
+If you have ffmpeg
+==================
+Execute:
+ffmpeg -framerate 5 -i ___Field_%06d.png -c:v libx264 -pix_fmt yuv420p -r 30 Field.mov
+ffmpeg -framerate 5 -i ___Curves_%06d.png -c:v libx264 -pix_fmt yuv420p -r 30 Curves.mov
+
+and then:
+ffmpeg -i Field.mov -vf scale=512:364 -aspect 512:364 -c:v libx264 -r 30 Field.mp4
+ffmpeg -i Curves.mov -vf scale=512:512 -aspect 1:1 -c:v libx264 -r 30 Curves.mp4
+ffmpeg -i Curves.mp4 -i Field.mp4 -filter_complex "[0:v][1:v]hstack=inputs=2[v]" -map "[v]" Movie.mp4
+
+
+Local alternatives (JLD):
+ff resize curves.mov 512
+ff resize field.mov 512
+ffmpeg -i curves_resized.mp4 -i field_resized.mp4 -filter_complex "[0:v][1:v]vstack=inputs=2[v]" -map "[v]"  Movie.mp4
+
+or
+
+ff resize curves.mov 512 512
+ff resize field.mov 512 512
+ffmpeg -i curves_resized.mp4 -i field_resized.mp4 -filter_complex "[0:v][1:v]hstack=inputs=2[v]" -map "[v]"  Movie.mp4
+

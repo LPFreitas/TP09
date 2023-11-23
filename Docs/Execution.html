@@ -1,0 +1,90 @@
+<!DOCTYPE html><HTML><HEAD><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><TITLE>JL Dessalles - Evolife</TITLE>
+<link rel="stylesheet" type="text/css" href="Evolife.css" /></HEAD><BODY BGCOLOR="#FFEEAA"><div><P></P>
+<HR WIDTH="100%" ALIGN="LEFT"><P></P><span style="font-size:144%"><p style="text-align:center"><span style="font-family:Comic Sans MS;"><a href="http://evolife.dessalles.fr">Evolife</a></span></p></span>
+<p style="text-align:center"><a href="http://www.dessalles.fr">Jean-Louis Dessalles</a></p>
+<HR WIDTH="100%" ALIGN="LEFT">
+<IMG style=";float: right; padding-left: 15px;" SRC="Images/Courbes.jpg" alt="Courbes.jpg" />
+<ol  ><li><a href="Description.html">Overall description</a></li>
+<li><a href="Execution.html">How to execute Evolife</a> (+ download)</li>
+<li><a href="Sources.html">Evolife source files</a></li>
+<li><a href="Classes">Evolife classes and functions</a></li>
+<li><a href="Working.html">How Evolife works</a></li>
+<li><a href="Create_Scenario.html">Create your own Evolife scenario</a></li>
+<li><a href="Components.html">Use Evolife&rsquo;s components separately (graphics, ecology, genetic algorithm)</a></li></ol><P></P>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:120%">&#x21aa;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Classes">Program documentation</a></span>
+<br/>
+<HR WIDTH="100%" ALIGN="LEFT">
+<br/>
+ 
+<div id="H1"><h2>2. How to execute <span style="font-family:Comic Sans MS;">Evolife</span> and download</h2></div>
+<div id="H2"><h3>Installation</h3></div>
+Download the latest version of <span style="font-family:Comic Sans MS;">Evolife</span> from: <span style="font-size:144%"><a href="Evolife.zip">Evolife.zip</a></span><P></P><ul  ><li>You may extract the <span style="font-family:Comic Sans MS;">Evolife</span> directory into an appropriate location.</li>
+<li>If you don&rsquo;t know how to extract files from the archive (normally, you do it by merely clicking on it), you may copy-paste the following lines into a terminal window at the appropriate location:<br><span class="xjlcode">python</span><br><span class="xjlcode">import zipfile, sys</span><br> <span class="xjlcode">zipfile.ZipFile(&#39;Evolife.zip&#39;).extractall()</span><br><span class="xjlcode">exit()</span><br><br></li></ul><P></P><span style="font-family:Comic Sans MS;">Evolife</span> is written in Python (<a href="http://www.python.org/">http://www.python.org/</a>) and should therefore run on various platforms. You should install Python first. The current version of <span style="font-family:Comic Sans MS;">Evolife</span> should run without too much trouble with old versions of Python (Python 2.6 or 2.7). It is however designed to run with <b>Python 3</b> (tested up to Python 3.6) (please report any problem you may notice).<P></P><span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s graphics requires the <b>PyQT library</b>.
+It is compatible with <a href="http://www.riverbankcomputing.co.uk/software/pyqt/download">PyQT4</a> and with <a href="https://www.riverbankcomputing.com/software/pyqt/download5">PyQt5</a>.<P></P><b>Summary</b>
+<ul  ><li>Install <a href="https://www.python.org/downloads/release/python-361/">Python</a></li>
+<li>Install <a href="https://www.riverbankcomputing.com/software/pyqt/download5">PyQt</a></li>
+<li>Download <span style="font-family:Comic Sans MS;"><a href="Evolife.zip">Evolife</a></span> and install it by unzipping it in an appropriate location.</li></ul>
+<br/>
+<div id="H3"><h3>Execution</h3></div>
+<ul  ><li>On <u>MsWindows</u>: <ul></li>
+<li>Run <span class="xjlcode">Starter.bat</span> from <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s directory.</ul></li>
+<li>On <u>Unix or Linux</u>: <ul></li>
+<li><span style="color:red;"><b>The first time, execute the command: <span class="xjlcode">python first.py</span> from <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s folder.</b></span></li>
+<li>Then, <span style="font-family:Comic Sans MS;">Evolife</span> is launched by executing the command <span class="xjlcode">./starter</span> from <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s directory.</ul></li></ul><P></P><span class="xjlcode">Starter</span> shows a configuration editor that allows you to choose a scenario and to modify parameters, before running <span style="font-family:Comic Sans MS;">Evolife</span> by clicking the <span class="xjlcode">[Run]</span> button.
+<br/>
+<p style="text-align:center"><IMG style=";" SRC="Images/TreeExplore.jpg" alt="TreeExplore.jpg" /></p>
+<p style="text-align:center">
+<i>The <span style="font-family:Comic Sans MS;">Evolife</span> Configuration Editor</i></p><P></P>The configuration editor provides a short description of each parameter at the bottom of the window.
+<br/>
+The <span class="xjlcode">[Load]</span> button loads an existing scenario. You may modify any parameter value. It is recommended to start from an existing scenario when creating a new one. If you need to add new parameters or modify the names of existing ones, simply edit the <span class="xjlcode">EvolifeConfigTree.xml</span> file before executing <span class="xjlcode">Stater.bat</span>.
+<br/>
+The <span class="xjlcode">[Run]</span> button executes <span style="font-family:Comic Sans MS;">Evolife</span>. To do so, parameter values are stored in <span class="xjlcode">Evolife.evo</span>, and <span class="xjlcode">Main.py</span> is executed (or any program specified as <span class="xjlcode">Target</span> in the <span class="xjlcode">Run Settings</span> section of <span class="xjlcode">Starter</span>). If you execute <span class="xjlcode">Main.py</span> directly (sometimes useful to display an error when you customize <span style="font-family:Comic Sans MS;">Evolife</span>), it will read Evolife.evo.
+<br/>
+Configuration files (<span class="xjlcode">.evo</span> files) are text files containing parameter-value pairs (one pair per line, separated by tab). <P></P><IMG style=";float: left; padding-right: 15px;" SRC="Images/PuceRouge.jpg" alt="PuceRouge.jpg" />
+You may modify any Python source under <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s directory, but you will most probably start by modifying the scenarios (see below).
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;If you experience difficulties with <b>tabs</b> in your Python editor, you may execute <span class="xjlcode">./Detabify.py</span> (located in <span style="font-family:Comic Sans MS;">Evolife</span>&rsquo;s directory) to replace all tabs by four spaces in all Python source files.<P></P><IMG style=";float: left; padding-right: 15px;" SRC="Images/PuceRouge.jpg" alt="PuceRouge.jpg" />
+Predefined scenarios are located in the <span class="xjlcode">Scenarii</span> directory. You may choose to add your own scenario in this directory. Alternatively, you may rename and modify <span class="xjlcode">S_Void.py</span>. When writing your scenario, you can redefine any of the functions found in <span class="xjlcode">Default_Scenario.py</span>. To do so, you may cut and paste functions from various scenarios in the Scenarii directory into your scenario.<P></P><IMG style=";float: left; padding-right: 15px;" SRC="Images/PuceRouge.jpg" alt="PuceRouge.jpg" />
+As it stands, <span class="xjlcode">Main.py</span> gives control to the <span style="font-family:Comic Sans MS;">Evolife</span> main window and the simulation is run from there. However, the simulation is kept separate from the window system. For specific applications or tests, you may prefer to run the simulation without any graphic visualization. To do so, set the <span class="xjlcode">BatchMode</span> parameter in the Configuration Editor (<span class="xjlcode">Starter</span>). In that case, no display takes place and results are stored in unique files in the directory <span class="xjlcode">___Results</span>.<P></P>
+<IMG style=";float: left; padding-right: 15px;" SRC="Images/PuceRouge.jpg" alt="PuceRouge.jpg" />
+Output results of <span style="font-family:Comic Sans MS;">Evolife</span> are stored in the following files, placed by default in the <span class="xjlcode">___Results</span> directory:
+<ul  ><li><span class="xjlcode"><span class="xjlcode"><</span>scen<span class="xjlcode">></span>.csv</span> or <span class="xjlcode"><span class="xjlcode"><</span>scen<span class="xjlcode">></span>_081016235225.csv</span> (where <span class="xjlcode"><span class="xjlcode"><</span>Scen<span class="xjlcode">></span></span> is the name of the scenario): contains the results of a single experiment. The longer name appears in batch mode only, indicating that the simulation was launched on October 16<sup>th</sup>, 2008, at 11h52 pm. This file contains the coordinates of the various curves that would have been displayed by <span style="font-family:Comic Sans MS;">Evolife</span> if not in batch mode. This file can be executed using Microsoft-Excel or equivalent.</li>
+<li><span class="xjlcode"><span class="xjlcode"><</span>scen<span class="xjlcode">></span>.res</span> or <span class="xjlcode"><span class="xjlcode"><</span>scen<span class="xjlcode">></span>_081016235225.res</span> (where <span class="xjlcode"><span class="xjlcode"><</span>Scen<span class="xjlcode">></span></span> is the name of the scenario): contains the average results of a single experiment. Such files may be concatenated to average over several experiments.</li>
+<li>Images generated when you click on the <span class="xjlcode">[Photo]</span> button or when in Film mode (shortcut <span class="xjlcode">v</span>) are stored in the <span class="xjlcode">___Results</span> directory as well.</li></ul>
+When <i>not</i> in batch mode, running several instances of <span style="font-family:Comic Sans MS;">Evolife</span> simultaneously will cause these output files to be overwritten by the last terminating instance.<P></P>You may visualize a stored curve file (<span class="xjlcode"><scen>.csv</span> or <span class="xjlcode"><scen>_081016235225.csv</span>) using the <span class="xjlcode">Plot.py</span> program (on the <span class="xjlcode">Evolife</span> directory).
+<br/>
+Type <span class="xjlcode">Plot.py</span> from the <span class="xjlcode">Evolife</span> directory to redisplay the last experiment.<P></P>The file <span class="xjlcode">Evolife_.evo</span> (on the Evolife directory) contains the values of parameters <i>actually used</i> in the simulation (note the trailing underscore).<P></P><IMG style=";float: left; padding-right: 15px;" SRC="Images/PuceRouge.jpg" alt="PuceRouge.jpg" />
+Buttons
+<ul  ><li><span class="xjlcode">[Genome]</span>: Displays the genomes of the population<ul><li> Each horizontal line represents the genome of one individual<li> Vertical patterns result from correlations between individuals</ul> </li>
+<li><span class="xjlcode">[Photo]</span>: Enters Photo Mode:<ul><li> Prints a few data on the console.<li> Saves the current plots in <span class="xjlcode">Evolife.csv</span> (which may be opened with Excel). This file is also created when exiting <span style="font-family:Comic Sans MS;">Evolife</span>.<li> Saves a screenshot for each opened window. Screenshots are saved automatically depending on Display Period, in <span class="xjlcode">.png</span> files. <li> If you enter Film mode (by pressing key <span class="xjlcode">v</span>), photos are taken automatically at each display period. These files can be assembled into films using <span class="xjlcode">ffmpeg</span> (download <a href="http://ffmpeg.org/"><span class="xjlcode">ffmpeg</span></a>, unzip the program, go to the <span class="xjlcode">___Results</span> folder and execute:<br><span class="xjlcode">ffmpeg -framerate 5 -i ___Field_%06d.png -c:v libx264 -pix_fmt yuv420p -r 30 "Movie.mov"</span><br>or<br><span class="xjlcode">ffmpeg -framerate 10 -i ___Field_%06d.png -pix_fmt yuv420p -loop 0 "Movie.gif"</span>). <br>(you may also use the <span class="xjlcode">MakeFilm</span> command in <span class="xjlcode">Tools</span>) </ul></li>
+<li><span class="xjlcode">[Run]</span>: Runs the simulation in continuous mode</li>
+<li><span class="xjlcode">[Step]</span>: Runs the simulation stepwise</li>
+<li><span class="xjlcode">[T]</span>: Displays trajectories (when applicable)</li>
+<li><span class="xjlcode">[A]</span>: Displays alliances (social links between individuals, sorted by competence) (when applicable)</li>
+<li><span class="xjlcode">[F]</span>: Displays agents&rsquo; positions on a 2-D field</li>
+<li><span class="xjlcode">[L]</span>: Log messages (not implemented)</li>
+<li><span class="xjlcode">[Help]</span>: Displays this help file</li>
+<li><span class="xjlcode">[Legend]</span>: Displays legend for curves</li></ul>
+<IMG style=";float: left; padding-right: 15px;" SRC="Images/PuceRouge.jpg" alt="PuceRouge.jpg" />
+Shortcuts
+<ul  ><li><span class="xjlcode"><span class="xjlcode"><</span>Esc<span class="xjlcode">></span></span>: quits the active window (and the application if main window is active) (like <span class="xjlcode">q</span>)</li>
+<li><span class="xjlcode"><span class="xjlcode"><</span>F1<span class="xjlcode">></span></span>: displays this help file</li>
+<li><span class="xjlcode"><span class="xjlcode"><</span>space<span class="xjlcode">></span></span>: runs the simulation one step forward (like <span class="xjlcode">s</span>)</li>
+<li><span class="xjlcode">a</span>:displays alliances (social links between individuals, sorted by competence) (when applicable)</li>
+<li><span class="xjlcode">c</span>: runs the simulation in continuous mode (like <span class="xjlcode">r</span>)</li>
+<li><span class="xjlcode">d</span>: displays legend for curves</li>
+<li><span class="xjlcode">f</span>: displays a 2-D field on which agents may be located</li>
+<li><span class="xjlcode">g</span>: displays genomes</li>
+<li><span class="xjlcode">h</span>: displays this help file</li>
+<li><span class="xjlcode">l</span>: displays log messages (not implemented)</li>
+<li><span class="xjlcode">m</span>: alternatively brings main window or satellite windows to foreground</li>
+<li><span class="xjlcode">q</span>: quits the active window (and the application if main window is active) (like <span class="xjlcode"><</span>Esc<span class="xjlcode">></span>)</li>
+<li><span class="xjlcode">r</span>: runs the simulation in continuous mode (like <span class="xjlcode">c</span>)</li>
+<li><span class="xjlcode">s</span>: runs the simulation one step forward (like <span class="xjlcode"><span class="xjlcode"><</span>space<span class="xjlcode">></span></span>)</li>
+<li><span class="xjlcode">t</span>: displays trajectories (when applicable)</li>
+<li><span class="xjlcode">v</span>: enters film mode. One picture per opened window is recorded (see above)</li>
+<li><span class="xjlcode">z</span>: shrinks satellite windows (genomes, alliances, labyrinth...) (dezoom)</li>
+<li><span class="xjlcode">-</span>: shrinks satellite windows (genomes, alliances, labyrinth...) (dezoom)</li>
+<li><span class="xjlcode">+</span>: expands satellite windows (genomes, alliances, labyrinth...) (zoom)</li></ul>
+(These shortcuts are available from any window of the application.)<P></P><HR WIDTH="100%" ALIGN="LEFT"><P></P>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</div></BODY></HTML>

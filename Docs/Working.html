@@ -1,0 +1,35 @@
+<!DOCTYPE html><HTML><HEAD><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><TITLE>JL Dessalles - Evolife</TITLE>
+<link rel="stylesheet" type="text/css" href="Evolife.css" /></HEAD><BODY BGCOLOR="#FFEEAA"><div><P></P>
+<HR WIDTH="100%" ALIGN="LEFT"><P></P><span style="font-size:144%"><p style="text-align:center"><span style="font-family:Comic Sans MS;"><a href="http://evolife.dessalles.fr">Evolife</a></span></p></span>
+<p style="text-align:center"><a href="http://www.dessalles.fr">Jean-Louis Dessalles</a></p>
+<HR WIDTH="100%" ALIGN="LEFT">
+<IMG style=";float: right; padding-left: 15px;" SRC="Images/Courbes.jpg" alt="Courbes.jpg" />
+<ol  ><li><a href="Description.html">Overall description</a></li>
+<li><a href="Execution.html">How to execute Evolife</a> (+ download)</li>
+<li><a href="Sources.html">Evolife source files</a></li>
+<li><a href="Classes">Evolife classes and functions</a></li>
+<li><a href="Working.html">How Evolife works</a></li>
+<li><a href="Create_Scenario.html">Create your own Evolife scenario</a></li>
+<li><a href="Components.html">Use Evolife&rsquo;s components separately (graphics, ecology, genetic algorithm)</a></li></ol><P></P>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:120%">&#x21aa;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Classes">Program documentation</a></span>
+<br/>
+<HR WIDTH="100%" ALIGN="LEFT">
+<br/>
+ 
+<div id="H1"><h2>6. How <span style="font-family:Comic Sans MS;">Evolife</span> works</h2></div>
+<span style="font-family:Comic Sans MS;">Evolife</span> is launched by executing Starter.bat (or starter.sh)and then by clicking on the [Run] button (see How to execute <span style="font-family:Comic Sans MS;">Evolife</span>).
+<br/>
+ 
+<br/>
+First, <span style="font-family:Comic Sans MS;">Evolife</span> reads a configuration file exported from the Configuration Editor, Evolife<span style="font-family:Comic Sans MS;">Evolife</span>.evo by default (note that configuration files are perfectly readable and can be edited by hand, but the Configuration Editor is much more convenient).
+<br/>
+When <span style="font-family:Comic Sans MS;">Evolife</span> is executed from the Configuration Editor, it imports the scenario it is supposed to simulate. The name of the scenario, e.g. &lsquo;Beehive&rsquo;, is retrieved from the configuration file which contains a line starting with S_Beehive. The scenario is supposed to be written in a file like S_Beehive.py in the directory Scenarii (see Create your own <span style="font-family:Comic Sans MS;">Evolife</span> scenario).<P></P>
+<span style="font-family:Comic Sans MS;">Evolife</span> first creates an &lsquo;observer&rsquo;, which contains a few global constants and performs statistics as the simulation runs.
+<br/>
+<span style="font-family:Comic Sans MS;">Evolife</span> then creates a population of individuals. The population is structured in groups. Individuals interact and procreate within groups, and migrate between groups. Each individual is characterized by its genotype (class Genome), its phenotype (class Phenome) and its social network (class Alliances) (see <span style="font-family:Comic Sans MS;">Evolife</span> classes).
+<br/>
+<span style="font-family:Comic Sans MS;">Evolife</span> then starts the main window, defined in Evolife_Window.py (see <span style="font-family:Comic Sans MS;">Evolife</span> <a href="Sources.html">source files</a>).<P></P><p style="text-align:center"><IMG style="width:333px;" SRC="Images/Curves.png" alt="Curves.png" /></p><P></P>When the <IMG style="width:55px;" SRC="Images/Run.png" alt="Run.png" /> button is clicked on (or the key <span class="xjlcode">R</span> is pressed), <span style="font-family:Comic Sans MS;">Evolife</span> starts the simulation. 
+<br/>
+The function stored in <span class="xjlcode">self.OneStep</span> is the function called from the application (in basic <span style="font-family:Comic Sans MS;">Evolife</span>: <span class="xjlcode">Population.py</span>) that executes one step of the simulation (typically, one complete year, with interactions, reproduction, selection and migration). Then control is given to the function <span class="xjlcode">self.ReturnFromThread</span> (defined in <span class="xjlcode">Evolife_Window.py</span>), which interprets the results produced by the simulation and plots curves. If <span class="xjlcode">self.OneStep</span> returns <span class="xjlcode">False</span>, then the simulation stops, otherwise it resumes.<P></P>The <span style="font-family:Comic Sans MS;">Evolife</span> window provides various buttons and keyboard shortcuts, as defined in the Help file.<P></P>When <span style="font-family:Comic Sans MS;">Evolife</span> quits, it creates various files. See <a href="Execution.html">How to execute <span style="font-family:Comic Sans MS;">Evolife</span></a>.
+ <P></P><P></P><HR WIDTH="100%" ALIGN="LEFT"><P></P>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</div></BODY></HTML>

@@ -1,0 +1,12 @@
+digraph Ecology {
+	color = "White"
+	bgcolor="#FFCF80";
+	/* label="Evolife files"; */
+	node  [style=filled,fillcolor="Red",fontname=Helvetica,fontcolor=White]; 
+	/*Void_Scenario [shape = ellipse];*/
+	Gene_Def; 
+	Genetic_Map -> Default_Scenario; 
+	Parameters -> Default_Scenario -> Void_Scenario
+	{rank=same; Parameters; Gene_Def}
+	Gene_Def -> Genetic_Map [style=dotted];
+}

@@ -1,0 +1,77 @@
+<Config>
+	<Parameter>
+		<Name>PARAMETERS</Name>
+		<Description><info><![CDATA[This is a configuration file editor designed to choose parameter values before launching Evolife simulations.<br><br>Its use is rather intuitive. You may click directly on values you want to change, or navigate with arrows and use the [F2] key to edit values.<br><br>Pay attention to explanations displayed in this panel.]]></info></Description>
+	</Parameter>
+	<Parameter>
+		<Name>Scenario</Name>
+		<Parameter>
+			<Name>CurrentScenario</Name>
+			<Parameter>
+				<Name>ScenarioName</Name>
+				<Value>LangtonAnt</Value>
+			</Parameter>
+			<Parameter>
+				<Name>ScenarioFileName</Name>
+				<Value>LangtonAnt.evo</Value>
+			</Parameter>
+		</Parameter>
+		<Parameter Scenario="LangtonAnt">
+			<Name>LangtonAnt</Name>
+			<Description><info><![CDATA[Langton's Ant Simulator]]></info></Description>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Simulation</Name>
+		<Parameter>
+			<Name>DisplayPeriod</Name>
+			<Description><info><![CDATA[Display period]]></info></Description>
+			<Value>5</Value>
+		</Parameter>
+		<Parameter>
+			<Name>TimeLimit</Name>
+			<Description><info><![CDATA[Max number of simulation steps]]></info></Description>
+			<Value>256</Value>
+		</Parameter>
+		<Parameter>
+			<Name>ApplicationDir</Name>
+			<Description><info><![CDATA[Directory where the simulation can be found]]></info></Description>
+			<Value>.</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Target</Name>
+			<Description><info><![CDATA[Programme to be executed]]></info></Description>
+			<Value>LangtonAnt.py</Value>
+		</Parameter>
+		<Parameter>
+			<Name>RunConfigFile</Name>
+			<Description><info><![CDATA[Parameter values that will be read by the programme]]></info></Description>
+			<Value>_Params.evo</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Title</Name>
+			<Description><info><![CDATA[Name of the present Configuration Editor]]></info></Description>
+			<Value>Evolife_Langton_Ant</Value>
+		</Parameter>
+		<Parameter>
+			<Name>Icon</Name>
+			<Description><info><![CDATA[local path to window icon]]></info></Description>
+			<Value>icon.png</Value>
+		</Parameter>
+	</Parameter>
+	<Parameter>
+		<Name>Noise</Name>
+		<Description><info><![CDATA[Average number of wrong turns taken by the ant every million steps]]></info></Description>
+		<Value>0</Value>
+	</Parameter>
+	<Parameter>
+		<Name>Rule</Name>
+		<Description><info><![CDATA[The rule followed by the ant, in the usual notation for the multicolor version of the Langton's Ant automaton: A sequence of letters 'L' and 'R', where the lenght of the sequence is the number of colors, and the Nth letter defines whether the ant turns L(eft) or R(ight) when in a cell of the Nth color.]]></info></Description>
+		<Value>RL</Value>
+	</Parameter>
+	<Parameter>
+		<Name>Size</Name>
+		<Description><info><![CDATA[Lenght of the size of the board]]></info></Description>
+		<Value>128</Value>
+	</Parameter>
+</Config>

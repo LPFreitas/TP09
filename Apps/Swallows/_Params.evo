@@ -1,0 +1,15 @@
+ParamName	ParamValue
+ApplicationDir	.
+DisplayPeriod	1
+GroupOffset	4
+GroupSlope	1
+Icon	swallow.gif
+Inertia	6
+NbAgents	200
+RunConfigFile	_Params.evo
+ScenarioFileName	Swallows.evo
+ScenarioName	Swallows
+Target	Swallows.py
+TimeLimit	300
+TimeSlope	20
+Title	Evolife_Swallows

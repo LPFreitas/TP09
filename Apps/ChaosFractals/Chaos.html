@@ -1,0 +1,84 @@
+<html>
+<h3><a href="http://www.dessalles.fr/Evolife">Goto Evolife documentation</a></h3>
+
+<h1>Scenario</h1>
+<p style="color: blue; font-family: helvetica">This is a configuration file editor designed to choose parameter values before launching Evolife simulations.<br><br>Its use is rather intuitive. You may click directly on values you want to change, or navigate with arrows and use the [F2] key to edit values.<br><br>Pay attention to explanations displayed in this panel.</p>
+
+<h2>Scenario ==> CurrentScenario</h2>
+<p style="color: blue; font-family: helvetica"></p>
+
+<h3>Scenario ==> CurrentScenario ==> ScenarioName --> Fern</h3>
+<p style="color: blue; font-family: helvetica">Simulates a network of websites</p>
+
+<h3>Scenario ==> CurrentScenario ==> ScenarioFileName --> Fern.evo</h3>
+<p style="color: blue; font-family: helvetica"></p>
+
+<h1>Shape</h1>
+<p style="color: blue; font-family: helvetica">Fractal forms may emerge from a simplistic non-deterministic procedure. Consider a real coefficient c between 0 and 100 and k points in the plane (vertices). Draw an additional random point P0. Take a random integer i between 1 and k. Draw a new point P1 at c% of the distance from P0 to the ith vertex. Repeat the procedure endlessly. If c is not too large, a fractal shape repeating the initial shape should emerge. <br>For a detailed demo, see: <a href="https://www.youtube.com/watch?v=kbKtFN71Lfs">https://www.youtube.com/watch?v=kbKtFN71Lfs</a>.</p>
+
+<h2>Shape ==> InitialDots --> [(10, 10), (50, 90), (90, 10)]</h2>
+<p style="color: blue; font-family: helvetica">Initial dots to generate the shape.</p>
+
+<h2>Shape ==> Coefficient --> 0.5</h2>
+<p style="color: blue; font-family: helvetica">Coefficient of the distance between dots and their predecessor.</p>
+
+<h1>Fern</h1>
+<p style="color: blue; font-family: helvetica">This fractal was named after British mathematician Michael
+		Barnsley who described it in his book Fractals everywhere in 1993.
+		The Barnsley fern is generated iteratively by starting from an initial point and drawing
+		a new dot at each step. The construction is based on a random choice, in the sense that at
+		each iteration, one out of four possible transforms is selected to compute the next point. The
+		four available transformations are affine functions of the plane.<br>For details, see: <a href="https://en.wikipedia.org/wiki/Barnsley_fern</a>.<br>For a detailed demo, see: <a https://www.youtube.com/watch?v=kbKtFN71Lfs</a>.</p>
+
+<h2>Fern ==> InitialPos --> (5, 0)</h2>
+<p style="color: blue; font-family: helvetica">Initial dots to generate the shape.</p>
+
+<h2>Fern ==> F1_a_b_c_d_e_f --> [0, 0, 0, 0, 0, 0]</h2>
+<p style="color: blue; font-family: helvetica">Initial dots to generate the shape.</p>
+
+<h2>Fern ==> F2_a_b_c_d_e_f --> [0.75, 0.04, -0.04, 0.85, 0, 1.6]</h2>
+<p style="color: blue; font-family: helvetica">Initial dots to generate the shape.</p>
+
+<h2>Fern ==> F3_a_b_c_d_e_f --> [0.2, -0.26, 0.23, 0.22, 0, 1.6]</h2>
+<p style="color: blue; font-family: helvetica">Initial dots to generate the shape.</p>
+
+<h2>Fern ==> F4_a_b_c_d_e_f --> [-0.15, 0.28, 0.26, 0.24, 0, 0.44]</h2>
+<p style="color: blue; font-family: helvetica">Initial dots to generate the shape.</p>
+
+<h2>Fern ==> Weight_p1_p2_p3_p4 --> [0.01, 0.85, 0.07, 0.07]</h2>
+<p style="color: blue; font-family: helvetica">Initial dots to generate the shape.</p>
+
+<h1>Simulation</h1>
+<p style="color: blue; font-family: helvetica"></p>
+
+<h2>Simulation ==> TimeLimit --> 500000</h2>
+<p style="color: blue; font-family: helvetica">Max number of simulation steps</p>
+
+<h2>Simulation ==> ApplicationDir --> .</h2>
+<p style="color: blue; font-family: helvetica">Directory where the simulation can be found</p>
+
+<h2>Simulation ==> Target --> Fern.py</h2>
+<p style="color: blue; font-family: helvetica">Programme to be executed</p>
+
+<h2>Simulation ==> RunConfigFile --> _Params.evo</h2>
+<p style="color: blue; font-family: helvetica">Parameter values that will be read by the programme</p>
+
+<h2>Simulation ==> Title --> Evolife_Chaos</h2>
+<p style="color: blue; font-family: helvetica">Name of the present Configuration Editor</p>
+
+<h2>Simulation ==> Icon --> dice.png</h2>
+<p style="color: blue; font-family: helvetica">local path to window icon</p>
+
+<h1>Display</h1>
+<p style="color: blue; font-family: helvetica"></p>
+
+<h2>Display ==> DotSize --> 2</h2>
+<p style="color: blue; font-family: helvetica">Size of dots on display</p>
+
+<h2>Display ==> DisplayPeriod --> 30</h2>
+<p style="color: blue; font-family: helvetica">Controls the number of steps when the ant is moving between two nodes. Increase to speed up display (can also be changed with the ruler at execution time)</p>
+
+<h2>Display ==> MessageDisplay --> 20</h2>
+<p style="color: blue; font-family: helvetica">Frequency of message display</p>
+
+<h2></h2></html>

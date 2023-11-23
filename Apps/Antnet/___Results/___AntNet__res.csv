@@ -1,0 +1,2 @@
+Date;AgeMax;AntInfluence;DisplayPeriod;DisplaySize;Icon;MessageDisplay;NetworkFileName;NumberOfNodes;PopulationSize;RandomNetwork;ScenarioName;TimeLimit;Title;LastStep;Best current length for message #0
+231121154501;10;30;3;100;ants-1.gif;1;Network1.ntw;60;8;0;AntNet;500000;Evolife_AntNet;27331;5
