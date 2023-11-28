@@ -1,2 +1,2 @@
-Date;DisplayPeriod;Icon;LandSize;NbColours;NeighbourhoodRadius;NumberOfGroups;PopulationSize;ResultDir;ScenarioName;SearchProportion;TimeLimit;Title;Tolerance;LastStep;red Satisfaction;blue Satisfaction
-231123161359;5;settler.jpg;40;2;1;2;1300;./___Results;Segregationism;0;300000;Evolife_Segregationism;0;300000;17;17
+Date;DisplayPeriod;Icon;LandSize;NbColours;NeighbourhoodRadius;NumberOfGroups;PopulationSize;ResultDir;ScenarioName;SearchProportion;TimeLimit;Title;Tolerance;LastStep;red Satisfaction;blue Satisfaction;brown Satisfaction
+231124084818;5;settler.jpg;40;3;1;3;1300;./___Results;Segregationism;1;300000;Evolife_Segregationism;25;134918;81;81;81
